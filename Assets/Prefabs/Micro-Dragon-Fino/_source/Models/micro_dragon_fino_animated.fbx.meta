@@ -1,0 +1,1166 @@
+fileFormatVersion: 2
+guid: eefd1a05969455744913d50c785b91e5
+timeCreated: 1476173682
+licenseType: Store
+ModelImporter:
+  serializedVersion: 19
+  fileIDToRecycleName:
+    100000: body_drag
+    100002: brows_drag
+    100004: eyes_drag
+    100006: head_drag
+    100008: left_arm_drag
+    100010: left_shoulder_drag
+    100012: left_wing_drag
+    100014: //RootNode
+    100016: micro_dragon_fino_mesh
+    100018: right_arm_drag
+    100020: right_shoulder_drag
+    100022: right_wing_drag
+    100024: root_drag
+    100026: snout_drag
+    100028: tail_drag
+    400000: body_drag
+    400002: brows_drag
+    400004: eyes_drag
+    400006: head_drag
+    400008: left_arm_drag
+    400010: left_shoulder_drag
+    400012: left_wing_drag
+    400014: //RootNode
+    400016: micro_dragon_fino_mesh
+    400018: right_arm_drag
+    400020: right_shoulder_drag
+    400022: right_wing_drag
+    400024: root_drag
+    400026: snout_drag
+    400028: tail_drag
+    4300000: micro_dragon_fino_mesh
+    7400000: dragon_bind
+    7400002: dragon_idle
+    7400004: dragon_bite
+    7400006: dragon_hit_front
+    7400008: dragon_hit_left
+    7400010: dragon_hit_right
+    7400012: dragon_panic
+    7400014: dragon_swoop_down
+    7400016: dragon_loop_da_loop
+    7400018: dragon_land_on_ground
+    7400020: dragon_die
+    7400022: dragon_stirr_on_ground
+    7400024: dragon_takeoff
+    7400026: dragon_attack
+    7400028: dragon_dizzy
+    7400030: dragon_talk
+    7400032: dragon_laugh
+    7400034: dragon_all
+    9500000: //RootNode
+    13700000: micro_dragon_fino_mesh
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: dragon_bind
+      takeName: Take 001
+      firstFrame: 1
+      lastFrame: 5
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: micro_dragon_fino_mesh
+        weight: 1
+      - path: root_drag
+        weight: 1
+      - path: root_drag/body_drag
+        weight: 1
+      - path: root_drag/body_drag/head_drag
+        weight: 1
+      - path: root_drag/body_drag/head_drag/brows_drag
+        weight: 1
+      - path: root_drag/body_drag/head_drag/eyes_drag
+        weight: 1
+      - path: root_drag/body_drag/head_drag/left_wing_drag
+        weight: 1
+      - path: root_drag/body_drag/head_drag/right_wing_drag
+        weight: 1
+      - path: root_drag/body_drag/head_drag/snout_drag
+        weight: 1
+      - path: root_drag/body_drag/left_shoulder_drag
+        weight: 1
+      - path: root_drag/body_drag/left_shoulder_drag/left_arm_drag
+        weight: 1
+      - path: root_drag/body_drag/right_shoulder_drag
+        weight: 1
+      - path: root_drag/body_drag/right_shoulder_drag/right_arm_drag
+        weight: 1
+      - path: root_drag/body_drag/tail_drag
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 1
+    - serializedVersion: 16
+      name: dragon_idle
+      takeName: Take 001
+      firstFrame: 6
+      lastFrame: 60
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: micro_dragon_fino_mesh
+        weight: 1
+      - path: root_drag
+        weight: 1
+      - path: root_drag/body_drag
+        weight: 1
+      - path: root_drag/body_drag/head_drag
+        weight: 1
+      - path: root_drag/body_drag/head_drag/brows_drag
+        weight: 1
+      - path: root_drag/body_drag/head_drag/eyes_drag
+        weight: 1
+      - path: root_drag/body_drag/head_drag/left_wing_drag
+        weight: 1
+      - path: root_drag/body_drag/head_drag/right_wing_drag
+        weight: 1
+      - path: root_drag/body_drag/head_drag/snout_drag
+        weight: 1
+      - path: root_drag/body_drag/left_shoulder_drag
+        weight: 1
+      - path: root_drag/body_drag/left_shoulder_drag/left_arm_drag
+        weight: 1
+      - path: root_drag/body_drag/right_shoulder_drag
+        weight: 1
+      - path: root_drag/body_drag/right_shoulder_drag/right_arm_drag
+        weight: 1
+      - path: root_drag/body_drag/tail_drag
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 1
+    - serializedVersion: 16
+      name: dragon_bite
+      takeName: Take 001
+      firstFrame: 61
+      lastFrame: 80
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: micro_dragon_fino_mesh
+        weight: 1
+      - path: root_drag
+        weight: 1
+      - path: root_drag/body_drag
+        weight: 1
+      - path: root_drag/body_drag/head_drag
+        weight: 1
+      - path: root_drag/body_drag/head_drag/brows_drag
+        weight: 1
+      - path: root_drag/body_drag/head_drag/eyes_drag
+        weight: 1
+      - path: root_drag/body_drag/head_drag/left_wing_drag
+        weight: 1
+      - path: root_drag/body_drag/head_drag/right_wing_drag
+        weight: 1
+      - path: root_drag/body_drag/head_drag/snout_drag
+        weight: 1
+      - path: root_drag/body_drag/left_shoulder_drag
+        weight: 1
+      - path: root_drag/body_drag/left_shoulder_drag/left_arm_drag
+        weight: 1
+      - path: root_drag/body_drag/right_shoulder_drag
+        weight: 1
+      - path: root_drag/body_drag/right_shoulder_drag/right_arm_drag
+        weight: 1
+      - path: root_drag/body_drag/tail_drag
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 1
+    - serializedVersion: 16
+      name: dragon_hit_front
+      takeName: Take 001
+      firstFrame: 81
+      lastFrame: 100
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: micro_dragon_fino_mesh
+        weight: 1
+      - path: root_drag
+        weight: 1
+      - path: root_drag/body_drag
+        weight: 1
+      - path: root_drag/body_drag/head_drag
+        weight: 1
+      - path: root_drag/body_drag/head_drag/brows_drag
+        weight: 1
+      - path: root_drag/body_drag/head_drag/eyes_drag
+        weight: 1
+      - path: root_drag/body_drag/head_drag/left_wing_drag
+        weight: 1
+      - path: root_drag/body_drag/head_drag/right_wing_drag
+        weight: 1
+      - path: root_drag/body_drag/head_drag/snout_drag
+        weight: 1
+      - path: root_drag/body_drag/left_shoulder_drag
+        weight: 1
+      - path: root_drag/body_drag/left_shoulder_drag/left_arm_drag
+        weight: 1
+      - path: root_drag/body_drag/right_shoulder_drag
+        weight: 1
+      - path: root_drag/body_drag/right_shoulder_drag/right_arm_drag
+        weight: 1
+      - path: root_drag/body_drag/tail_drag
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 1
+    - serializedVersion: 16
+      name: dragon_hit_left
+      takeName: Take 001
+      firstFrame: 101
+      lastFrame: 120
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: micro_dragon_fino_mesh
+        weight: 1
+      - path: root_drag
+        weight: 1
+      - path: root_drag/body_drag
+        weight: 1
+      - path: root_drag/body_drag/head_drag
+        weight: 1
+      - path: root_drag/body_drag/head_drag/brows_drag
+        weight: 1
+      - path: root_drag/body_drag/head_drag/eyes_drag
+        weight: 1
+      - path: root_drag/body_drag/head_drag/left_wing_drag
+        weight: 1
+      - path: root_drag/body_drag/head_drag/right_wing_drag
+        weight: 1
+      - path: root_drag/body_drag/head_drag/snout_drag
+        weight: 1
+      - path: root_drag/body_drag/left_shoulder_drag
+        weight: 1
+      - path: root_drag/body_drag/left_shoulder_drag/left_arm_drag
+        weight: 1
+      - path: root_drag/body_drag/right_shoulder_drag
+        weight: 1
+      - path: root_drag/body_drag/right_shoulder_drag/right_arm_drag
+        weight: 1
+      - path: root_drag/body_drag/tail_drag
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 1
+    - serializedVersion: 16
+      name: dragon_hit_right
+      takeName: Take 001
+      firstFrame: 121
+      lastFrame: 140
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: micro_dragon_fino_mesh
+        weight: 1
+      - path: root_drag
+        weight: 1
+      - path: root_drag/body_drag
+        weight: 1
+      - path: root_drag/body_drag/head_drag
+        weight: 1
+      - path: root_drag/body_drag/head_drag/brows_drag
+        weight: 1
+      - path: root_drag/body_drag/head_drag/eyes_drag
+        weight: 1
+      - path: root_drag/body_drag/head_drag/left_wing_drag
+        weight: 1
+      - path: root_drag/body_drag/head_drag/right_wing_drag
+        weight: 1
+      - path: root_drag/body_drag/head_drag/snout_drag
+        weight: 1
+      - path: root_drag/body_drag/left_shoulder_drag
+        weight: 1
+      - path: root_drag/body_drag/left_shoulder_drag/left_arm_drag
+        weight: 1
+      - path: root_drag/body_drag/right_shoulder_drag
+        weight: 1
+      - path: root_drag/body_drag/right_shoulder_drag/right_arm_drag
+        weight: 1
+      - path: root_drag/body_drag/tail_drag
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 1
+    - serializedVersion: 16
+      name: dragon_panic
+      takeName: Take 001
+      firstFrame: 141
+      lastFrame: 210
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: micro_dragon_fino_mesh
+        weight: 1
+      - path: root_drag
+        weight: 1
+      - path: root_drag/body_drag
+        weight: 1
+      - path: root_drag/body_drag/head_drag
+        weight: 1
+      - path: root_drag/body_drag/head_drag/brows_drag
+        weight: 1
+      - path: root_drag/body_drag/head_drag/eyes_drag
+        weight: 1
+      - path: root_drag/body_drag/head_drag/left_wing_drag
+        weight: 1
+      - path: root_drag/body_drag/head_drag/right_wing_drag
+        weight: 1
+      - path: root_drag/body_drag/head_drag/snout_drag
+        weight: 1
+      - path: root_drag/body_drag/left_shoulder_drag
+        weight: 1
+      - path: root_drag/body_drag/left_shoulder_drag/left_arm_drag
+        weight: 1
+      - path: root_drag/body_drag/right_shoulder_drag
+        weight: 1
+      - path: root_drag/body_drag/right_shoulder_drag/right_arm_drag
+        weight: 1
+      - path: root_drag/body_drag/tail_drag
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 1
+    - serializedVersion: 16
+      name: dragon_swoop_down
+      takeName: Take 001
+      firstFrame: 211
+      lastFrame: 250
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: micro_dragon_fino_mesh
+        weight: 1
+      - path: root_drag
+        weight: 1
+      - path: root_drag/body_drag
+        weight: 1
+      - path: root_drag/body_drag/head_drag
+        weight: 1
+      - path: root_drag/body_drag/head_drag/brows_drag
+        weight: 1
+      - path: root_drag/body_drag/head_drag/eyes_drag
+        weight: 1
+      - path: root_drag/body_drag/head_drag/left_wing_drag
+        weight: 1
+      - path: root_drag/body_drag/head_drag/right_wing_drag
+        weight: 1
+      - path: root_drag/body_drag/head_drag/snout_drag
+        weight: 1
+      - path: root_drag/body_drag/left_shoulder_drag
+        weight: 1
+      - path: root_drag/body_drag/left_shoulder_drag/left_arm_drag
+        weight: 1
+      - path: root_drag/body_drag/right_shoulder_drag
+        weight: 1
+      - path: root_drag/body_drag/right_shoulder_drag/right_arm_drag
+        weight: 1
+      - path: root_drag/body_drag/tail_drag
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 1
+    - serializedVersion: 16
+      name: dragon_loop_da_loop
+      takeName: Take 001
+      firstFrame: 251
+      lastFrame: 270
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: micro_dragon_fino_mesh
+        weight: 1
+      - path: root_drag
+        weight: 1
+      - path: root_drag/body_drag
+        weight: 1
+      - path: root_drag/body_drag/head_drag
+        weight: 1
+      - path: root_drag/body_drag/head_drag/brows_drag
+        weight: 1
+      - path: root_drag/body_drag/head_drag/eyes_drag
+        weight: 1
+      - path: root_drag/body_drag/head_drag/left_wing_drag
+        weight: 1
+      - path: root_drag/body_drag/head_drag/right_wing_drag
+        weight: 1
+      - path: root_drag/body_drag/head_drag/snout_drag
+        weight: 1
+      - path: root_drag/body_drag/left_shoulder_drag
+        weight: 1
+      - path: root_drag/body_drag/left_shoulder_drag/left_arm_drag
+        weight: 1
+      - path: root_drag/body_drag/right_shoulder_drag
+        weight: 1
+      - path: root_drag/body_drag/right_shoulder_drag/right_arm_drag
+        weight: 1
+      - path: root_drag/body_drag/tail_drag
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 1
+    - serializedVersion: 16
+      name: dragon_land_on_ground
+      takeName: Take 001
+      firstFrame: 271
+      lastFrame: 310
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: micro_dragon_fino_mesh
+        weight: 1
+      - path: root_drag
+        weight: 1
+      - path: root_drag/body_drag
+        weight: 1
+      - path: root_drag/body_drag/head_drag
+        weight: 1
+      - path: root_drag/body_drag/head_drag/brows_drag
+        weight: 1
+      - path: root_drag/body_drag/head_drag/eyes_drag
+        weight: 1
+      - path: root_drag/body_drag/head_drag/left_wing_drag
+        weight: 1
+      - path: root_drag/body_drag/head_drag/right_wing_drag
+        weight: 1
+      - path: root_drag/body_drag/head_drag/snout_drag
+        weight: 1
+      - path: root_drag/body_drag/left_shoulder_drag
+        weight: 1
+      - path: root_drag/body_drag/left_shoulder_drag/left_arm_drag
+        weight: 1
+      - path: root_drag/body_drag/right_shoulder_drag
+        weight: 1
+      - path: root_drag/body_drag/right_shoulder_drag/right_arm_drag
+        weight: 1
+      - path: root_drag/body_drag/tail_drag
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 1
+    - serializedVersion: 16
+      name: dragon_die
+      takeName: Take 001
+      firstFrame: 311
+      lastFrame: 346
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: micro_dragon_fino_mesh
+        weight: 1
+      - path: root_drag
+        weight: 1
+      - path: root_drag/body_drag
+        weight: 1
+      - path: root_drag/body_drag/head_drag
+        weight: 1
+      - path: root_drag/body_drag/head_drag/brows_drag
+        weight: 1
+      - path: root_drag/body_drag/head_drag/eyes_drag
+        weight: 1
+      - path: root_drag/body_drag/head_drag/left_wing_drag
+        weight: 1
+      - path: root_drag/body_drag/head_drag/right_wing_drag
+        weight: 1
+      - path: root_drag/body_drag/head_drag/snout_drag
+        weight: 1
+      - path: root_drag/body_drag/left_shoulder_drag
+        weight: 1
+      - path: root_drag/body_drag/left_shoulder_drag/left_arm_drag
+        weight: 1
+      - path: root_drag/body_drag/right_shoulder_drag
+        weight: 1
+      - path: root_drag/body_drag/right_shoulder_drag/right_arm_drag
+        weight: 1
+      - path: root_drag/body_drag/tail_drag
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 1
+    - serializedVersion: 16
+      name: dragon_stirr_on_ground
+      takeName: Take 001
+      firstFrame: 347
+      lastFrame: 446
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: micro_dragon_fino_mesh
+        weight: 1
+      - path: root_drag
+        weight: 1
+      - path: root_drag/body_drag
+        weight: 1
+      - path: root_drag/body_drag/head_drag
+        weight: 1
+      - path: root_drag/body_drag/head_drag/brows_drag
+        weight: 1
+      - path: root_drag/body_drag/head_drag/eyes_drag
+        weight: 1
+      - path: root_drag/body_drag/head_drag/left_wing_drag
+        weight: 1
+      - path: root_drag/body_drag/head_drag/right_wing_drag
+        weight: 1
+      - path: root_drag/body_drag/head_drag/snout_drag
+        weight: 1
+      - path: root_drag/body_drag/left_shoulder_drag
+        weight: 1
+      - path: root_drag/body_drag/left_shoulder_drag/left_arm_drag
+        weight: 1
+      - path: root_drag/body_drag/right_shoulder_drag
+        weight: 1
+      - path: root_drag/body_drag/right_shoulder_drag/right_arm_drag
+        weight: 1
+      - path: root_drag/body_drag/tail_drag
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 1
+    - serializedVersion: 16
+      name: dragon_takeoff
+      takeName: Take 001
+      firstFrame: 447
+      lastFrame: 511
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: micro_dragon_fino_mesh
+        weight: 1
+      - path: root_drag
+        weight: 1
+      - path: root_drag/body_drag
+        weight: 1
+      - path: root_drag/body_drag/head_drag
+        weight: 1
+      - path: root_drag/body_drag/head_drag/brows_drag
+        weight: 1
+      - path: root_drag/body_drag/head_drag/eyes_drag
+        weight: 1
+      - path: root_drag/body_drag/head_drag/left_wing_drag
+        weight: 1
+      - path: root_drag/body_drag/head_drag/right_wing_drag
+        weight: 1
+      - path: root_drag/body_drag/head_drag/snout_drag
+        weight: 1
+      - path: root_drag/body_drag/left_shoulder_drag
+        weight: 1
+      - path: root_drag/body_drag/left_shoulder_drag/left_arm_drag
+        weight: 1
+      - path: root_drag/body_drag/right_shoulder_drag
+        weight: 1
+      - path: root_drag/body_drag/right_shoulder_drag/right_arm_drag
+        weight: 1
+      - path: root_drag/body_drag/tail_drag
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 1
+    - serializedVersion: 16
+      name: dragon_attack
+      takeName: Take 001
+      firstFrame: 512
+      lastFrame: 559
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: micro_dragon_fino_mesh
+        weight: 1
+      - path: root_drag
+        weight: 1
+      - path: root_drag/body_drag
+        weight: 1
+      - path: root_drag/body_drag/head_drag
+        weight: 1
+      - path: root_drag/body_drag/head_drag/brows_drag
+        weight: 1
+      - path: root_drag/body_drag/head_drag/eyes_drag
+        weight: 1
+      - path: root_drag/body_drag/head_drag/left_wing_drag
+        weight: 1
+      - path: root_drag/body_drag/head_drag/right_wing_drag
+        weight: 1
+      - path: root_drag/body_drag/head_drag/snout_drag
+        weight: 1
+      - path: root_drag/body_drag/left_shoulder_drag
+        weight: 1
+      - path: root_drag/body_drag/left_shoulder_drag/left_arm_drag
+        weight: 1
+      - path: root_drag/body_drag/right_shoulder_drag
+        weight: 1
+      - path: root_drag/body_drag/right_shoulder_drag/right_arm_drag
+        weight: 1
+      - path: root_drag/body_drag/tail_drag
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 1
+    - serializedVersion: 16
+      name: dragon_dizzy
+      takeName: Take 001
+      firstFrame: 560
+      lastFrame: 650
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: micro_dragon_fino_mesh
+        weight: 1
+      - path: root_drag
+        weight: 1
+      - path: root_drag/body_drag
+        weight: 1
+      - path: root_drag/body_drag/head_drag
+        weight: 1
+      - path: root_drag/body_drag/head_drag/brows_drag
+        weight: 1
+      - path: root_drag/body_drag/head_drag/eyes_drag
+        weight: 1
+      - path: root_drag/body_drag/head_drag/left_wing_drag
+        weight: 1
+      - path: root_drag/body_drag/head_drag/right_wing_drag
+        weight: 1
+      - path: root_drag/body_drag/head_drag/snout_drag
+        weight: 1
+      - path: root_drag/body_drag/left_shoulder_drag
+        weight: 1
+      - path: root_drag/body_drag/left_shoulder_drag/left_arm_drag
+        weight: 1
+      - path: root_drag/body_drag/right_shoulder_drag
+        weight: 1
+      - path: root_drag/body_drag/right_shoulder_drag/right_arm_drag
+        weight: 1
+      - path: root_drag/body_drag/tail_drag
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 1
+    - serializedVersion: 16
+      name: dragon_talk
+      takeName: Take 001
+      firstFrame: 651
+      lastFrame: 728
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: micro_dragon_fino_mesh
+        weight: 1
+      - path: root_drag
+        weight: 1
+      - path: root_drag/body_drag
+        weight: 1
+      - path: root_drag/body_drag/head_drag
+        weight: 1
+      - path: root_drag/body_drag/head_drag/brows_drag
+        weight: 1
+      - path: root_drag/body_drag/head_drag/eyes_drag
+        weight: 1
+      - path: root_drag/body_drag/head_drag/left_wing_drag
+        weight: 1
+      - path: root_drag/body_drag/head_drag/right_wing_drag
+        weight: 1
+      - path: root_drag/body_drag/head_drag/snout_drag
+        weight: 1
+      - path: root_drag/body_drag/left_shoulder_drag
+        weight: 1
+      - path: root_drag/body_drag/left_shoulder_drag/left_arm_drag
+        weight: 1
+      - path: root_drag/body_drag/right_shoulder_drag
+        weight: 1
+      - path: root_drag/body_drag/right_shoulder_drag/right_arm_drag
+        weight: 1
+      - path: root_drag/body_drag/tail_drag
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 1
+    - serializedVersion: 16
+      name: dragon_laugh
+      takeName: Take 001
+      firstFrame: 691
+      lastFrame: 791
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: micro_dragon_fino_mesh
+        weight: 1
+      - path: root_drag
+        weight: 1
+      - path: root_drag/body_drag
+        weight: 1
+      - path: root_drag/body_drag/head_drag
+        weight: 1
+      - path: root_drag/body_drag/head_drag/brows_drag
+        weight: 1
+      - path: root_drag/body_drag/head_drag/eyes_drag
+        weight: 1
+      - path: root_drag/body_drag/head_drag/left_wing_drag
+        weight: 1
+      - path: root_drag/body_drag/head_drag/right_wing_drag
+        weight: 1
+      - path: root_drag/body_drag/head_drag/snout_drag
+        weight: 1
+      - path: root_drag/body_drag/left_shoulder_drag
+        weight: 1
+      - path: root_drag/body_drag/left_shoulder_drag/left_arm_drag
+        weight: 1
+      - path: root_drag/body_drag/right_shoulder_drag
+        weight: 1
+      - path: root_drag/body_drag/right_shoulder_drag/right_arm_drag
+        weight: 1
+      - path: root_drag/body_drag/tail_drag
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 1
+    - serializedVersion: 16
+      name: dragon_all
+      takeName: Take 001
+      firstFrame: 1
+      lastFrame: 791
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: micro_dragon_fino_mesh
+        weight: 1
+      - path: root_drag
+        weight: 1
+      - path: root_drag/body_drag
+        weight: 1
+      - path: root_drag/body_drag/head_drag
+        weight: 1
+      - path: root_drag/body_drag/head_drag/brows_drag
+        weight: 1
+      - path: root_drag/body_drag/head_drag/eyes_drag
+        weight: 1
+      - path: root_drag/body_drag/head_drag/left_wing_drag
+        weight: 1
+      - path: root_drag/body_drag/head_drag/right_wing_drag
+        weight: 1
+      - path: root_drag/body_drag/head_drag/snout_drag
+        weight: 1
+      - path: root_drag/body_drag/left_shoulder_drag
+        weight: 1
+      - path: root_drag/body_drag/left_shoulder_drag/left_arm_drag
+        weight: 1
+      - path: root_drag/body_drag/right_shoulder_drag
+        weight: 1
+      - path: root_drag/body_drag/right_shoulder_drag/right_arm_drag
+        weight: 1
+      - path: root_drag/body_drag/tail_drag
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 1
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
