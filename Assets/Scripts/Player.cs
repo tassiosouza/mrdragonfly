@@ -47,20 +47,17 @@ public class Player : MonoBehaviour {
 			//Check if the player is jumping to disable collider
 			disableColliderWhenJumping ();
 			
-		} else {
-		
-			if (Input.GetMouseButtonUp (0)) {
-				Application.LoadLevel ("Main");			
-			}
 		}
 	}
 
 	private void performPlayerSideMovement()
 	{
-		
+		//If first touch get last input position X
 		if (Input.GetMouseButtonDown (0)) {
 			lastInputPositionX = Input.mousePosition.x;
 		}
+
+		//When draging calculate velocity and direction of the player moviment
 		if (Input.GetMouseButton (0)) {
 			velocity = Mathf.Abs(Input.mousePosition.x - lastInputPositionX);
 
@@ -68,53 +65,27 @@ public class Player : MonoBehaviour {
 
 			lastInputPositionX = Input.mousePosition.x;
 		}
-		
+
+		//define user experience value to move player velocity
 		velocity = velocity / 50;
+
+		//Change the player velocity and rotation when in a moving ground
+		if (gameController.getCurrentGround() != null) {
+			if (gameController.getCurrentGround ().IsMovingGround ())
+				velocity = 0.05f;
+			this.transform.rotation = Quaternion.AngleAxis(180,Vector3.up);
+		}
 
 
 		if (directionLeft) {
+			
+			movePlayerLeft ();
 
-			//walk and prevent get out of wall
-			if (this.transform.position.x - velocity > -7) {
-				this.transform.position = new Vector3 (this.transform.position.x - velocity, this.transform.position.y,
-					this.transform.position.z);
-			}
-
-			//reset rotation when stopped
-			if (velocity == 0) {
-				timeToBackRotation += 0.4f;
-				if(timeToBackRotation > 4)
-					this.transform.rotation = Quaternion.AngleAxis(180,Vector3.up);
-			} else {
-				//rotate player
-				if (velocity > 0.2f) 
-				this.transform.rotation = Quaternion.AngleAxis(225,Vector3.up);
-				timeToBackRotation = 0;
-			}
-
+		} else {
+			
+			movePlayerRight ();
 		}
-		else {
-			//walk and prevent get out of wall
-			if (this.transform.position.x + velocity < 7) {
-				this.transform.position = new Vector3 (this.transform.position.x + velocity, this.transform.position.y,
-					this.transform.position.z);
-			}
-
-			//reset rotation when stopped
-			if (velocity == 0) {
-				timeToBackRotation += 0.4f;
-				if(timeToBackRotation > 4)
-					this.transform.rotation = Quaternion.AngleAxis(180,Vector3.up);
-				
-			} else {
-				
-				//rotate player
-				if (velocity > 0.2f) 
-				this.transform.rotation = Quaternion.AngleAxis(135,Vector3.up);
-
-				timeToBackRotation = 0;
-			}
-		}
+			
 	}
 
 	private bool mouseInputJumping()
@@ -145,4 +116,50 @@ public class Player : MonoBehaviour {
 	{
 		return (this.lastYPosition < this.transform.position.y - offSetCorrection);
 	}
+
+	private void movePlayerLeft()
+	{
+		//walk and prevent get out of wall
+		if (this.transform.position.x - velocity > -7) {
+			this.transform.position = new Vector3 (this.transform.position.x - velocity, this.transform.position.y,
+				this.transform.position.z);
+		}
+
+		//reset rotation when stopped
+		if (velocity == 0) {
+			timeToBackRotation += 0.4f;
+			if (timeToBackRotation > 4)
+				this.transform.rotation = Quaternion.AngleAxis (180, Vector3.up);
+		} else {
+			//rotate player
+			if (velocity > 0.2f)
+				this.transform.rotation = Quaternion.AngleAxis (225, Vector3.up);
+			timeToBackRotation = 0;
+		}
+	}
+
+	private void movePlayerRight()
+	{
+			//walk and prevent get out of wall
+			if (this.transform.position.x + velocity < 7) {
+				this.transform.position = new Vector3 (this.transform.position.x + velocity, this.transform.position.y,
+					this.transform.position.z);
+			}
+
+			//reset rotation when stopped
+			if (velocity == 0) {
+				timeToBackRotation += 0.4f;
+				if(timeToBackRotation > 4)
+					this.transform.rotation = Quaternion.AngleAxis(180,Vector3.up);
+
+			} else {
+
+				//rotate player
+				if (velocity > 0.2f) 
+					this.transform.rotation = Quaternion.AngleAxis(135,Vector3.up);
+
+				timeToBackRotation = 0;
+			}
+	}
+
 }
