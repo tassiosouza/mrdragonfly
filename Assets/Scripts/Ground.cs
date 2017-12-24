@@ -9,6 +9,7 @@ public class Ground : MonoBehaviour {
 	public GameObject gost;
 
 	public GameObject coin;
+	public GameObject coin1;
 
 	private bool isMovingGround = false;
 
@@ -35,17 +36,26 @@ public class Ground : MonoBehaviour {
 			}
 
 			//sort for moving ground
-			if(Random.Range (0, 4) == 0){
-				isMovingGround = true;
-				this.transform.GetChild(2).GetComponent<Renderer>().material.color = Color.red;
-			}
+//			if(Random.Range (0, 4) == 0){
+//				isMovingGround = true;
+//				this.transform.GetChild(2).GetComponent<Renderer>().material.color = Color.red;
+//			}
 		}
 
-		for (int i = - 6; i < 8; i+=2) {
-			
-			Instantiate (coin);
-			coin.transform.position = new Vector3 (i, this.transform.position.y + 0.7f,
-				this.transform.position.z);
+		for (float i = - 3.5f; i <= 5.5f; i+=3.3f) {
+
+			if (Random.Range (0, 4) == 1) {
+				
+				Instantiate (coin);
+				coin.transform.position = new Vector3 (i, this.transform.position.y + 0.9f,
+					this.transform.position.z);
+			}
+			else if(Random.Range (0, 4) == 2)
+			{
+				Instantiate (coin1);
+				coin1.transform.position = new Vector3 (i, this.transform.position.y + 0.9f,
+					this.transform.position.z);
+			}
 		}
 
 

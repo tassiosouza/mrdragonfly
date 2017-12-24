@@ -62,7 +62,7 @@ public class Gost : Enemy {
 	{
 		if (isGoingRight) {
 
-			if (this.transform.position.x < 7) {
+			if (this.transform.position.x < 5) {
 				this.transform.position = new Vector3 (this.transform.position.x + velocity, this.transform.position.y + velocityUp,
 					this.transform.position.z);
 				this.transform.rotation = Quaternion.AngleAxis(135,Vector3.up);
@@ -70,7 +70,7 @@ public class Gost : Enemy {
 				isGoingRight = false;
 			}
 		} else {
-			if (this.transform.position.x > -7) {
+			if (this.transform.position.x > -5) {
 				this.transform.position = new Vector3 (this.transform.position.x - velocity, this.transform.position.y + velocityUp,
 					this.transform.position.z);
 				this.transform.rotation = Quaternion.AngleAxis(225,Vector3.up);

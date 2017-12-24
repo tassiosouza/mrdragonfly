@@ -22,7 +22,8 @@ public class GameController : MonoBehaviour {
 
 	public InterfaceController interfaceController;
 
-	private int playerScore = 0;
+	private float playerScore = 0;
+	private int playerCoins = 0;
 
 	private List<Ground> groundList = new List<Ground>();
 
@@ -70,9 +71,14 @@ public class GameController : MonoBehaviour {
 		return currentGround;
 	}
 
+	public void increaseCoin()
+	{
+		playerCoins++;
+		interfaceController.updateUICoin (playerCoins);
+	}
+
 	public void increaseScore()
 	{
-		playerScore++;
 		interfaceController.updateUIScore (playerScore);
 	}
 
@@ -109,6 +115,9 @@ public class GameController : MonoBehaviour {
 			mainCamera.transform.position.y + gameVelocity ,mainCamera.transform.position.z);
 		
 		gameVelocity += 0.0000005f;
+
+		playerScore += Time.deltaTime;
+		increaseScore ();
 	}
 
 	public float getGameVelocity()

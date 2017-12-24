@@ -1,0 +1,21 @@
+fileFormatVersion: 2
+guid: a8043cb5ad61b44a79a6fb6f803e04e6
+timeCreated: 1514079175
+licenseType: Free
+TrueTypeFontImporter:
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: CAPconstruct
+  fontNames:
+  - CAPconstruct
+  fallbackFontReferences: []
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

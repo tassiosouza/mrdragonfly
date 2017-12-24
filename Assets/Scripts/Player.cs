@@ -120,7 +120,7 @@ public class Player : MonoBehaviour {
 	private void movePlayerLeft()
 	{
 		//walk and prevent get out of wall
-		if (this.transform.position.x - velocity > -7) {
+		if (this.transform.position.x - velocity > -5) {
 			this.transform.position = new Vector3 (this.transform.position.x - velocity, this.transform.position.y,
 				this.transform.position.z);
 		}
@@ -141,7 +141,7 @@ public class Player : MonoBehaviour {
 	private void movePlayerRight()
 	{
 			//walk and prevent get out of wall
-			if (this.transform.position.x + velocity < 7) {
+			if (this.transform.position.x + velocity < 5) {
 				this.transform.position = new Vector3 (this.transform.position.x + velocity, this.transform.position.y,
 					this.transform.position.z);
 			}
