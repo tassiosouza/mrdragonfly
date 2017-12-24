@@ -9,7 +9,8 @@ public class Ground : MonoBehaviour {
 	public GameObject gost;
 
 	public GameObject coin;
-	public GameObject coin1;
+	public GameObject cristal;
+	public GameObject cristal1;
 
 	private bool isMovingGround = false;
 
@@ -44,7 +45,7 @@ public class Ground : MonoBehaviour {
 
 		for (float i = - 3.5f; i <= 5.5f; i+=3.3f) {
 
-			if (Random.Range (0, 4) == 1) {
+			if (Random.Range (0, 6) == 1) {
 				
 				Instantiate (coin);
 				coin.transform.position = new Vector3 (i, this.transform.position.y + 0.9f,
@@ -52,8 +53,14 @@ public class Ground : MonoBehaviour {
 			}
 			else if(Random.Range (0, 4) == 2)
 			{
-				Instantiate (coin1);
-				coin1.transform.position = new Vector3 (i, this.transform.position.y + 0.9f,
+				Instantiate (cristal);
+				cristal.transform.position = new Vector3 (i, this.transform.position.y + 0.9f,
+					this.transform.position.z);
+			}
+			else if(Random.Range (0, 10) == 3)
+			{
+				Instantiate (cristal1);
+				cristal1.transform.position = new Vector3 (i, this.transform.position.y + 1.2f,
 					this.transform.position.z);
 			}
 		}

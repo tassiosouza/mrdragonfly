@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class GameController : MonoBehaviour {
 
-	public float gameVelocity = 0.1f;
+	public float gameVelocity;
 	public GameObject groundObject;
 
 	public Camera mainCamera;
@@ -43,6 +43,8 @@ public class GameController : MonoBehaviour {
 		friendsButton = GameObject.Find("Friends Button").GetComponent<Button>();
 		optionsButton = GameObject.Find("Options Button").GetComponent<Button>();
 		initialScreen = GameObject.Find("Initial Screen").GetComponent<RectTransform>();
+
+		gameVelocity = LevelController.initialGameVelocity;
 	}
 
 	// Update is called once per frame
@@ -77,9 +79,9 @@ public class GameController : MonoBehaviour {
 		interfaceController.updateUICoin (playerCoins);
 	}
 
-	public void increaseScore()
+	public void increaseScore(int value)
 	{
-		interfaceController.updateUIScore (playerScore);
+		playerScore += value;
 	}
 
 	public void pauseGame()
@@ -114,10 +116,10 @@ public class GameController : MonoBehaviour {
 		mainCamera.transform.position = new Vector3 (mainCamera.transform.position.x,
 			mainCamera.transform.position.y + gameVelocity ,mainCamera.transform.position.z);
 		
-		gameVelocity += 0.0000005f;
+		gameVelocity += LevelController.deltaGameVelocity;
 
 		playerScore += Time.deltaTime;
-		increaseScore ();
+		interfaceController.updateUIScore (playerScore);
 	}
 
 	public float getGameVelocity()

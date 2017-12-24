@@ -12,17 +12,18 @@ public class TextAnim : MonoBehaviour {
 	private float coinPosX = 0;
 	private float coinPosY = 0;
 
-	Camera  c = Camera.main;
+	Camera c;
 
 	// Use this for initialization
 	void Start () {
 		text = this.GetComponent<Text>();
+		c = Camera.main;
 	}
 
 	// Update is called once per frame
 	void Update () {
 
-		alpha -= 0.04f;
+		alpha -= 0.03f;
 		deltapositionY += 4f;
 		text.color = new Color(text.color.r,text.color.g,text.color.b,alpha);
 		//text.transform.position = new Vector2 (375,707 + deltapositionY );

@@ -19,7 +19,7 @@ public class Coin : MonoBehaviour {
 	private Vector3 initialPosition;
 	private Vector3 finalPosition;
 
-	public GameObject increase10;
+	public GameObject increaseText;
 
 	private bool hitted = false;
 
@@ -47,7 +47,7 @@ public class Coin : MonoBehaviour {
 			if(this.gameObject.tag == "coin")
 			journeyLengthX = 4.5f - this.transform.position.x;
 
-			if(this.gameObject.tag == "cristal")
+			if(this.gameObject.tag == "cristal" || this.gameObject.tag == "cristal1" )
 				journeyLengthX = -5f - this.transform.position.x;
 			
 			transform.position = new Vector3 (this.transform.position.x + journeyLengthX/15, this.transform.position.y + journeyLength/20,this.transform.position.z);
@@ -63,12 +63,24 @@ public class Coin : MonoBehaviour {
 		if (other.gameObject.tag == "Player") {
 
 			if (this.gameObject.tag == "coin") {
-				GameObject textToShow = Instantiate(increase10) as GameObject;
-				textToShow.GetComponent<TextAnim> ().setInitialPosition (this.transform.position.x, this.transform.position.y);
-				textToShow.transform.parent = this.gameController.interfaceController.transform;
+				
 				gameController.increaseCoin();
 			}
+
+			if (this.gameObject.tag == "cristal") {
+				gameController.increaseScore (5);
+			}
+
+			if (this.gameObject.tag == "cristal1") {
+				gameController.increaseScore (20);
+			}
 				
+			//show text
+			GameObject textToShow = Instantiate(increaseText) as GameObject;
+			textToShow.GetComponent<TextAnim> ().setInitialPosition (this.transform.position.x, this.transform.position.y);
+			textToShow.transform.SetParent(this.gameController.interfaceController.transform, false);
+
+
 			//start animation to the top
 			finalPosition = new Vector3 (this.transform.position.x, this.transform.position.y + (
 				(this.gameController.mainCamera.transform.position.y + 16) - 
