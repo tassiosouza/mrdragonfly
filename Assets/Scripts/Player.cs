@@ -35,7 +35,7 @@ public class Player : MonoBehaviour {
 	}
 	
 	// Update is called once per frame
-	void FixedUpdate () {
+	void Update () {
 		
 		if (gameController.IsGameRunning ()) {
 
@@ -107,10 +107,50 @@ public class Player : MonoBehaviour {
 		}
 			
 	}
-
+	private float clickTime = 0;
+	private float clickPos = 0;
 	private bool mouseInputJumping()
 	{
-		return (Input.GetMouseButtonUp (0) && rBody.velocity.y <= 3f);
+		if (rBody.velocity.y <= 3f)
+		{
+			if (Input.GetMouseButton(0)) {
+
+				if (clickTime == 0) {
+					clickPos = Input.mousePosition.y;
+				}
+
+				clickTime += Time.deltaTime;
+
+
+			}
+			if (Input.GetMouseButtonUp(0)) {
+
+				if (clickTime < 0.2f) {
+					return true;
+				} else if (Input.mousePosition.y - clickPos > 50) {
+					return true;
+				}	
+
+				clickTime = 0;
+			}
+		}
+
+		return false;
+
+
+//		if (Input.GetMouseButton (0)) {
+//			
+//			clickTime += Time.deltaTime;
+//			Debug.Log ("pressing - " + clickTime);
+//		} 
+//		if(Input.GetMouseButtonUp (0))
+//		{
+//			clickTime = 0;
+//
+//		}
+//
+//		Debug.Log ("pressing - " + clickTime);
+//		return false;
 	}
 
 	private void playerJump()
