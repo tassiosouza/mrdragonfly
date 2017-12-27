@@ -9,16 +9,16 @@ public class LevelController : MonoBehaviour {
 
 	// Use this for initialization
 	void Awake () {
-		initialGameVelocity = Time.deltaTime * 5;
-		deltaGameVelocity = Time.deltaTime/500;
+		initialGameVelocity = Time.deltaTime * 2;
+		deltaGameVelocity = Time.deltaTime/2000;
 		
 	}
 	
 	// Update is called once per frame
-	void Update () {
+	void FixedUpdate () {
 
-		initialGameVelocity = Time.deltaTime * 5;
-		deltaGameVelocity = Time.deltaTime/500;
+		initialGameVelocity = Time.deltaTime * 2;
+		deltaGameVelocity = Time.deltaTime/2000;
 		
 	}
 }

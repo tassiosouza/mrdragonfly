@@ -5,7 +5,7 @@ using UnityEngine;
 public class Gost : Enemy {
 
 	private bool isGoingRight;
-	private float velocity = 0.11f;
+	private float velocity = 4f;
 	private float velocityUp = 0;
 
 	private GameController gameController;
@@ -14,6 +14,9 @@ public class Gost : Enemy {
 	private int alpha = 225;
 	private Color color;
 
+	private float velocityUpdate;
+	Animator animationController;
+	float timetoanim = 0;
 	// Use this for initialization
 	void Start () {
 
@@ -24,17 +27,23 @@ public class Gost : Enemy {
 		player = FindObjectOfType<Player> ();
 		color = GetComponentInChildren<Renderer>().material.color;
 
+		animationController = GetComponent<Animator> ();
+
 	}
 
 	// Update is called once per frame
-	void Update () {
+	void FixedUpdate () {
+
+		velocityUpdate = Time.deltaTime * velocity;
+
 		if (gameController.IsGameRunning ()) {
 			Move ();
+			animationController.SetBool ("gameStarted", true);
 
 			if (player.gameObject.transform.position.y > this.transform.position.y - 1 &&
 				player.gameObject.transform.position.y < this.transform.position.y + 1) {
 
-				velocityUp = velocity / 2;
+				velocityUp = velocityUpdate / 2;
 				startFade = true;
 			}
 
@@ -56,6 +65,16 @@ public class Gost : Enemy {
 			}
 
 		}
+
+		if (gameController.isGameEnded ()) {
+			this.transform.rotation = Quaternion.AngleAxis(180,Vector3.up);
+			timetoanim += Time.deltaTime;
+
+			if (timetoanim > 1) {
+				animationController.SetBool ("gameStarted", false);
+
+			}
+		}
 	}
 
 	private void Move()
@@ -63,7 +82,7 @@ public class Gost : Enemy {
 		if (isGoingRight) {
 
 			if (this.transform.position.x < 5) {
-				this.transform.position = new Vector3 (this.transform.position.x + velocity, this.transform.position.y + velocityUp,
+				this.transform.position = new Vector3 (this.transform.position.x + velocityUpdate, this.transform.position.y + velocityUp,
 					this.transform.position.z);
 				this.transform.rotation = Quaternion.AngleAxis(135,Vector3.up);
 			} else {
@@ -71,7 +90,7 @@ public class Gost : Enemy {
 			}
 		} else {
 			if (this.transform.position.x > -5) {
-				this.transform.position = new Vector3 (this.transform.position.x - velocity, this.transform.position.y + velocityUp,
+				this.transform.position = new Vector3 (this.transform.position.x - velocityUpdate, this.transform.position.y + velocityUp,
 					this.transform.position.z);
 				this.transform.rotation = Quaternion.AngleAxis(225,Vector3.up);
 			} else {
@@ -82,9 +101,10 @@ public class Gost : Enemy {
 
 	void OnTriggerEnter(Collider other) {
 		if (other.gameObject.tag == "Player") {
-			//GetComponent<Renderer>().material.color = new Color(255, 0, 0);
-			other.gameObject.GetComponent<SphereCollider>().enabled = false;
-			this.gameController.pauseGame ();
+			animationController.SetBool ("kill", true);
+			Player player = other.GetComponent<Player>();
+			player.die ();
+			this.gameController.endGame ();
 		}
 	}
 }

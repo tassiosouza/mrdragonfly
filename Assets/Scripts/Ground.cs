@@ -21,18 +21,18 @@ public class Ground : MonoBehaviour {
 			if (Random.Range (0, 4) == 0) {
 				Instantiate (pacCrazy);
 				pacCrazy.GetComponent<Enemy>().setGround (this.gameObject);
-				pacCrazy.transform.position = new Vector3 (Random.Range (-7, 7), this.transform.position.y + 0.25f,
+				pacCrazy.transform.position = new Vector3 (Random.Range (-5, 5), this.transform.position.y + 0.25f,
 					this.transform.position.z);
 			} else if(Random.Range (0, 4) == 2) {
 				Instantiate (gost);
 				gost.GetComponent<Enemy>().setGround (this.gameObject);
-				gost.transform.position = new Vector3 (Random.Range (-7, 7), this.transform.position.y + 0.25f,
+				gost.transform.position = new Vector3 (Random.Range (-5, 5), this.transform.position.y + 0.25f,
 					this.transform.position.z);
 			}
 			else {
 				Instantiate (babu);
 				babu.GetComponent<Enemy>().setGround (this.gameObject);
-				babu.transform.position = new Vector3 (Random.Range (-7, 7), this.transform.position.y + 0.25f,
+				babu.transform.position = new Vector3 (Random.Range (-5, 5), this.transform.position.y + 0.25f,
 					this.transform.position.z);
 			}
 

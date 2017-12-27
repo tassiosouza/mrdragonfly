@@ -11,10 +11,14 @@ public class InterfaceController : MonoBehaviour {
 	public GameObject increase10;
 	public GameObject increase50;
 
+	public GameObject HomeInterface;
+
 	// Use this for initialization
 	void Start () {
 		coin.GetComponent<Text> ().text = "x " + 0;
 		score.GetComponent<Text> ().text = "x " + 0;
+
+		HomeInterface.SetActive (ApplicationModel.isHome);
 	}
 	
 	// Update is called once per frame

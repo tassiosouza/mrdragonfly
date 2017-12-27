@@ -10,7 +10,7 @@ public class GameController : MonoBehaviour {
 
 	public Camera mainCamera;
 
-	private bool gamePaused = false;
+	private bool gameEnded = false;
 	private bool gameStarted = false;
 
 	private Button startButton;
@@ -45,17 +45,18 @@ public class GameController : MonoBehaviour {
 		initialScreen = GameObject.Find("Initial Screen").GetComponent<RectTransform>();
 
 		gameVelocity = LevelController.initialGameVelocity;
+
+		//comming from restart button
+		if (!ApplicationModel.isHome)
+		{
+			startGame ();
+		}
 	}
 
 	// Update is called once per frame
-	void Update () {
+	void FixedUpdate () {
 		if (IsGameRunning ()) {
 			runGameScene ();
-		}
-		else {
-			if (Input.GetMouseButtonUp (0) && gameStarted) {
-				Application.LoadLevel ("Main");			
-			}
 		}
 	}
 
@@ -84,14 +85,10 @@ public class GameController : MonoBehaviour {
 		playerScore += value;
 	}
 
-	public void pauseGame()
+	public void endGame()
 	{
-		gamePaused = true;
-	}
-
-	public void resumeGame()
-	{
-		gamePaused = false;
+		this.interfaceController.GetComponentInChildren<FinalDialogController> ().setInformations ((int)playerScore,500);
+		gameEnded = true;
 	}
 
 	public void startGame()
@@ -100,23 +97,34 @@ public class GameController : MonoBehaviour {
 		GameObject.Destroy (initialScreen.gameObject);
 	}
 
-
 	public void restartGame()
 	{
-		gamePaused = false;
+		ApplicationModel.isHome = false;
+		Application.LoadLevel ("Main");	
+	}
+
+	public void reloadGame()
+	{
+		ApplicationModel.isHome = true;
+		Application.LoadLevel ("Main");	
 	}
 
 	public bool IsGameRunning()
 	{
-		return !gamePaused && gameStarted;
+		return !gameEnded && gameStarted;
+	}
+
+	public bool isGameEnded()
+	{
+		return gameEnded;
 	}
 
 	private void runGameScene()
 	{
 		mainCamera.transform.position = new Vector3 (mainCamera.transform.position.x,
-			mainCamera.transform.position.y + gameVelocity ,mainCamera.transform.position.z);
+			mainCamera.transform.position.y + Time.deltaTime * 2 ,mainCamera.transform.position.z);
 		
-		gameVelocity += LevelController.deltaGameVelocity;
+		//gameVelocity += LevelController.deltaGameVelocity;
 
 		playerScore += Time.deltaTime;
 		interfaceController.updateUIScore (playerScore);

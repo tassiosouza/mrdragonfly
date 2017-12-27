@@ -32,39 +32,39 @@ public class GroundColorControl : MonoBehaviour {
 
 	private void colorControl()
 	{
-		time += colorVelocity;
+		time += Time.deltaTime;
 
-		if (time > 0 && time < 0.5f) 
+		if (time > 0 && time < 15) 
 		{
 			setColorUntilValue (0, 0.5f,false);
 			setColorUntilValue (1, 0.5f,false);//azul escuro
 			setColorUntilValue (2, 0.5f,false);
 		}
-		if (time > 0.5f && time < 1) 
+		if (time > 15 && time < 30) 
 		{
 			setColorUntilValue (1, 1f,true); // verde claro
 			setColorUntilValue (0, 0f,false);
 			setColorUntilValue (2, 0f,false);
 		}
-		if (time > 1f && time < 1.5f) 
+		if (time > 30f && time < 45f) 
 		{
 			setColorUntilValue (1, 0.5f,false);
 			setColorUntilValue (0, 0.2f,false);// verde escuro
 			setColorUntilValue (2, 0.2f,false);
 		}
-		if (time > 1.5f && time < 2.5f) 
+		if (time > 45f && time < 60f) 
 		{
 			setColorUntilValue (1, 0f,false);
 			setColorUntilValue (0, 1f,true);// vermelho claro
 			setColorUntilValue (2, 0f,false);
 		}
-		if (time > 2.5f && time < 3.5f) 
+		if (time > 60f && time < 75f) 
 		{
 			setColorUntilValue (1, 1f,true);
 			setColorUntilValue (0, 1f,false);//azul escuro
 			setColorUntilValue (2, 1,true);
 		}
-		if (time > 3.5f) 
+		if (time > 75f) 
 		{
 			time = 0;
 		}
@@ -75,16 +75,17 @@ public class GroundColorControl : MonoBehaviour {
 
 	private void setColorUntilValue(int color, float value, bool isUp)
 	{
-		switch (color) {
+		switch (color)
+		{
 		case 0://red
 
 			if (!isUp) {
 				if (currentRed >= value) {
-					currentRed -= colorVelocity;
+					currentRed -= time/40000;
 				}
 			} else {
 				if (currentRed <= value) {
-					currentRed += colorVelocity;
+					currentRed += time/40000;
 				}
 			}
 
@@ -94,11 +95,11 @@ public class GroundColorControl : MonoBehaviour {
 
 			if (!isUp) {
 				if (currentGreen >= value) {
-					currentGreen -= colorVelocity;
+					currentGreen -= time/40000;
 				}
 			} else {
 				if (currentGreen <= value) {
-					currentGreen += colorVelocity;
+					currentGreen += time / 40000;
 				}
 			}
 
@@ -108,11 +109,11 @@ public class GroundColorControl : MonoBehaviour {
 
 			if (!isUp) {
 				if (currentBlue >= value) {
-					currentBlue -= colorVelocity;
+					currentBlue -= time/40000;
 				}
 			} else {
 				if (currentBlue <= value) {
-					currentBlue += colorVelocity;
+					currentBlue += time/40000;
 				}
 			}
 

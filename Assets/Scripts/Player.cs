@@ -24,15 +24,18 @@ public class Player : MonoBehaviour {
 	private Animator animationController;
 
 	float velocity = 0;
+	private bool dead = false;
+	private float timeToJumpDeath = 0;
 
 	// Use this for initialization
 	void Start () {
 		rBody = this.GetComponent<Rigidbody> ();
 		animationController = GetComponent<Animator> ();
+		timeToJumpDeath = 0;
 	}
 	
 	// Update is called once per frame
-	void Update () {
+	void FixedUpdate () {
 		
 		if (gameController.IsGameRunning ()) {
 
@@ -46,7 +49,24 @@ public class Player : MonoBehaviour {
 
 			//Check if the player is jumping to disable collider
 			disableColliderWhenJumping ();
-			
+		}
+
+		//control death animation
+		if (dead) {
+			timeToJumpDeath += Time.deltaTime;
+			animationController.SetBool ("IsJumping", false);
+			animationController.SetBool ("isDead", true);
+
+			this.gameObject.GetComponent<SphereCollider> ().isTrigger = false;
+
+			if (timeToJumpDeath > 1)
+			{
+				this.GetComponent<SphereCollider> ().radius = this.GetComponent<SphereCollider> ().radius / 2f;
+				animationController.SetBool ("isDead", false);
+				animationController.SetBool ("isDeadJump", true);
+				dead = false;
+			}
+
 		}
 	}
 
@@ -70,11 +90,11 @@ public class Player : MonoBehaviour {
 		velocity = velocity / 50;
 
 		//Change the player velocity and rotation when in a moving ground
-		if (gameController.getCurrentGround() != null) {
-			if (gameController.getCurrentGround ().IsMovingGround ())
-				velocity = 0.05f;
-			this.transform.rotation = Quaternion.AngleAxis(180,Vector3.up);
-		}
+//		if (gameController.getCurrentGround() != null) {
+//			if (gameController.getCurrentGround ().IsMovingGround ())
+//				velocity = 0.05f;
+//			//this.transform.rotation = Quaternion.AngleAxis(180,Vector3.up);
+//		}
 
 
 		if (directionLeft) {
@@ -132,7 +152,7 @@ public class Player : MonoBehaviour {
 				this.transform.rotation = Quaternion.AngleAxis (180, Vector3.up);
 		} else {
 			//rotate player
-			if (velocity > 0.2f)
+			if (velocity > 0.1f)
 				this.transform.rotation = Quaternion.AngleAxis (225, Vector3.up);
 			timeToBackRotation = 0;
 		}
@@ -155,11 +175,16 @@ public class Player : MonoBehaviour {
 			} else {
 
 				//rotate player
-				if (velocity > 0.2f) 
+				if (velocity > 0.1f) 
 					this.transform.rotation = Quaternion.AngleAxis(135,Vector3.up);
 
 				timeToBackRotation = 0;
 			}
+	}
+
+	public void die()
+	{
+		dead = true;
 	}
 
 }

@@ -5,12 +5,12 @@ using UnityEngine;
 public class CrazyPac : Enemy {
 
 	private bool isGoingRight;
-	private float velocity = 0.21f;
+	private float velocity = 8;
 
 	private GameController gameController;
 
 	private float counter = 0;
-
+	Animator animationController;
 	// Use this for initialization
 	void Start () {
 
@@ -18,28 +18,36 @@ public class CrazyPac : Enemy {
 
 		isGoingRight = (Random.Range (0, 1) == 1);
 		gameController = FindObjectOfType<GameController> ();
+
+		animationController = GetComponent<Animator> ();
 	}
 
 	// Update is called once per frame
-	void Update () {
+	void FixedUpdate () {
 		if (gameController.IsGameRunning ()) {
+			animationController.SetBool ("gameStarted", true);
 			Move ();
+		}
+
+		if (gameController.isGameEnded ()) {
+			animationController.SetBool ("gameStarted", false);
 		}
 	}
 
 	private void Move()
 	{
+		float velocityUpdate = Time.deltaTime * velocity;
 		if (isGoingRight) {
 
 			if (this.transform.position.x < 5) {
-				this.transform.position = new Vector3 (this.transform.position.x + velocity, this.transform.position.y,
+				this.transform.position = new Vector3 (this.transform.position.x + velocityUpdate, this.transform.position.y,
 					this.transform.position.z);
 			} else {
 				isGoingRight = false;
 			}
 		} else {
 			if (this.transform.position.x > -5) {
-				this.transform.position = new Vector3 (this.transform.position.x - velocity, this.transform.position.y,
+				this.transform.position = new Vector3 (this.transform.position.x - velocityUpdate, this.transform.position.y,
 					this.transform.position.z);
 			} else {
 				isGoingRight = true;
@@ -49,8 +57,10 @@ public class CrazyPac : Enemy {
 
 	void OnTriggerEnter(Collider other) {
 		if (other.gameObject.tag == "Player") {
-			other.gameObject.GetComponent<SphereCollider>().enabled = false;
-			this.gameController.pauseGame ();
+			Player player = other.GetComponent<Player>();
+			player.die ();
+			animationController.SetBool ("kill", true);
+			this.gameController.endGame ();
 		}
 	}
 }

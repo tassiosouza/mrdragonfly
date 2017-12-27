@@ -46,7 +46,8 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\LevelController.cs" />
+     <Compile Include="Assets\FinalDialogController.cs" />
+     <Compile Include="Assets\Scripts\ApplicationModel.cs" />
      <Compile Include="Assets\Scripts\Coin.cs" />
      <Compile Include="Assets\Scripts\CrazyPac.cs" />
      <Compile Include="Assets\Scripts\Enemy.cs" />
@@ -55,10 +56,11 @@
      <Compile Include="Assets\Scripts\Ground.cs" />
      <Compile Include="Assets\Scripts\GroundColorControl.cs" />
      <Compile Include="Assets\Scripts\InterfaceController.cs" />
+     <Compile Include="Assets\Scripts\LevelController.cs" />
      <Compile Include="Assets\Scripts\Pac.cs" />
      <Compile Include="Assets\Scripts\ParallaxLevel.cs" />
      <Compile Include="Assets\Scripts\Player.cs" />
-     <Compile Include="Assets\TextAnim.cs" />
+     <Compile Include="Assets\Scripts\TextAnim.cs" />
      <None Include="Assets\Prefabs\Micro-Brian\_source\models\micro_zombie_animation_list.txt" />
      <None Include="Assets\Prefabs\Micro-Hubert-Faceted\_source\Models\micro_ghost_animations_list.txt" />
      <None Include="Assets\Prefabs\Collectables super pack\readme.txt" />
