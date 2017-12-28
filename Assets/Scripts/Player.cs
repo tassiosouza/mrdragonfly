@@ -110,7 +110,7 @@ public class Player : MonoBehaviour {
 
 	private bool mouseInputJumping()
 	{
-		return (Input.GetMouseButtonUp (0) && rBody.velocity.y <= 3f);
+		return (Input.GetMouseButtonUp (0) && rBody.velocity.y <= 4f);
 	}
 
 	private void playerJump()

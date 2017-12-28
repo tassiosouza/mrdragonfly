@@ -11,20 +11,26 @@ public class GroundColorControl : MonoBehaviour {
 	public float time = 0;
 	private float colorVelocity = 0.001f;
 
-	public GameController gameController;
-	public Renderer rend;
+	private GameController gameController;
+	private Renderer rend;
 
 	// Use this for initialization
 	void Start () {
 		rend = GetComponent<Renderer>();
+		gameController = GameObject.FindGameObjectWithTag ("GameController").GetComponent<GameController>();
+
+
 	}
 	
 	// Update is called once per frame
 	void Update () {
 		if (gameController.IsGameRunning ()) {
 			
-			colorControl ();
-
+			//colorControl ();
+			currentRed = GameObject.FindGameObjectWithTag ("ParallaxLevel").GetComponent<ParallaxLevel> ().currentRed;
+			currentGreen = GameObject.FindGameObjectWithTag ("ParallaxLevel").GetComponent<ParallaxLevel> ().currentGreen;
+			currentBlue = GameObject.FindGameObjectWithTag ("ParallaxLevel").GetComponent<ParallaxLevel> ().currentBlue;
+			rend.material.color = new Color(currentRed,currentGreen, currentBlue, 1f); // Set to opaque black
 		}
 
 

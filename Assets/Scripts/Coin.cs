@@ -57,6 +57,11 @@ public class Coin : MonoBehaviour {
 			}
 		}
 
+		//destroy this when gets out of camera
+		if (this.transform.position.y < this.gameController.mainCamera.transform.position.y - 15) {
+			Destroy (this.gameObject);
+		}
+
 	}
 
 	void OnTriggerEnter(Collider other) {

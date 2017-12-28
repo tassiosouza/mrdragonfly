@@ -21,6 +21,8 @@ public class FinalDialogController : MonoBehaviour {
 	public GameObject cScore;
 	public GameObject bScore;
 
+	public GameDataController dataController;
+
 	// Use this for initialization
 	void Start () {
 
@@ -46,9 +48,17 @@ public class FinalDialogController : MonoBehaviour {
 		bottomPart.transform.localPosition = new Vector3 (bottomX, bottomPart.transform.localPosition.y, bottomPart.transform.localPosition.z);
 	}
 
-	public void setInformations(int score, int best)
+	public void setInformations(int score)
 	{
-		cScore.GetComponent<Text> ().text = ""+score;
-		bScore.GetComponent<Text> ().text = ""+best;
+		//update best score if needed
+		if (score > dataController.getBestScore ())
+		{
+			dataController.setNewScore (score);
+		}
+
+		//set ui information
+		cScore.GetComponent<Text> ().text = ""+ score;
+		bScore.GetComponent<Text> ().text = ""+ dataController.getBestScore();
+
 	}
 }

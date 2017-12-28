@@ -38,6 +38,12 @@ public class Gost : Enemy {
 
 		if (gameController.IsGameRunning ()) {
 			Move ();
+
+			//destroy this when gets out of camera
+			if (this.transform.position.y < this.gameController.mainCamera.transform.position.y - 15) {
+				Destroy (this.gameObject);
+			}
+
 			animationController.SetBool ("gameStarted", true);
 
 			if (player.gameObject.transform.position.y > this.transform.position.y - 1 &&

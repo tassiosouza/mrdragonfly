@@ -25,17 +25,14 @@ public class GameController : MonoBehaviour {
 	private float playerScore = 0;
 	private int playerCoins = 0;
 
+	private float timeToAddGrounds = 0;
+
 	private List<Ground> groundList = new List<Ground>();
 
 	// Use this for initialization
 	void Start () {
 
-		for (int i = 1; i < 100; i++) {
-			GameObject ground = Instantiate (groundObject);
-			ground.transform.parent = this.transform;
-			ground.transform.position = new Vector3 (0, i * 2.7f, 0);
-			groundList.Add (ground.GetComponent<Ground>());
-		}
+		addNewGrounds (20);
 
 		QualitySettings.antiAliasing = 90000;
 
@@ -74,6 +71,21 @@ public class GameController : MonoBehaviour {
 		return currentGround;
 	}
 
+	private void addNewGrounds(int quantity)
+	{
+		int size = groundList.Count + quantity;
+		for (int i = groundList.Count; i < size; i++) {
+			GameObject ground = Instantiate (groundObject);
+			ground.transform.parent = this.transform;
+			if (groundList.Count > 0) {
+				ground.transform.position = new Vector3 (0, groundList [groundList.Count - 1].gameObject.transform.position.y + 2.7f, 0);
+			} else {
+				ground.transform.position = new Vector3 (0, 0, 0);
+			}
+			groundList.Add (ground.GetComponent<Ground>());
+		}
+	}
+
 	public void increaseCoin()
 	{
 		playerCoins++;
@@ -87,7 +99,7 @@ public class GameController : MonoBehaviour {
 
 	public void endGame()
 	{
-		this.interfaceController.GetComponentInChildren<FinalDialogController> ().setInformations ((int)playerScore,500);
+		this.interfaceController.GetComponentInChildren<FinalDialogController> ().setInformations ((int)playerScore);
 		gameEnded = true;
 	}
 
@@ -128,6 +140,18 @@ public class GameController : MonoBehaviour {
 
 		playerScore += Time.deltaTime;
 		interfaceController.updateUIScore (playerScore);
+
+		//ground quantity controll : add
+		timeToAddGrounds += Time.deltaTime;
+		if (groundList[groundList.Count -1].transform.position.y < mainCamera.transform.position.y + 15) 
+		{
+			addNewGrounds (1);
+		}
+	}
+
+	public List<Ground> getGroundList()
+	{
+		return this.groundList;
 	}
 
 	public float getGameVelocity()

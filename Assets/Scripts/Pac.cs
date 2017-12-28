@@ -25,6 +25,11 @@ public class Pac : Enemy {
 		if (gameController.IsGameRunning ()) {
 			animationController.SetBool ("gameStarted", true);
 			Move ();
+
+			//destroy this when gets out of camera
+			if (this.transform.position.y < this.gameController.mainCamera.transform.position.y - 15) {
+				Destroy (this.gameObject);
+			}
 		}
 
 		if (gameController.isGameEnded ()) {
