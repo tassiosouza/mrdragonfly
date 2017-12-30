@@ -30,6 +30,7 @@ public class Pac : Enemy {
 			if (this.transform.position.y < this.gameController.mainCamera.transform.position.y - 15) {
 				Destroy (this.gameObject);
 			}
+			animationController.SetBool ("kill", false);
 		}
 
 		if (gameController.isGameEnded ()) {

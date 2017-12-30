@@ -8,6 +8,7 @@ public class GameDataController : MonoBehaviour {
 	private int isInstalled = 0;
 
 	private string SCORE = "Score";
+	private string COINS = "Coins";
 
 	// Use this for initialization
 	void Start () {
@@ -19,8 +20,7 @@ public class GameDataController : MonoBehaviour {
 			isInstalled = 1;
 			PlayerPrefs.SetInt (INSTALLED, isInstalled);
 
-			//Init all game data
-			PlayerPrefs.SetInt (SCORE, 0);
+			resetData ();
 		}
 
 	}
@@ -33,5 +33,27 @@ public class GameDataController : MonoBehaviour {
 	public void setNewScore(int newScore)
 	{
 		PlayerPrefs.SetInt (SCORE, newScore);
+	}
+
+	public int getTotalCoins()
+	{
+		return PlayerPrefs.GetInt (COINS);
+	}
+
+	public void incrementCoins(int quantityCoins)
+	{
+		PlayerPrefs.SetInt (COINS, getTotalCoins() + quantityCoins);
+	}
+
+	public void decrementCoins(int quantityCoins)
+	{
+		PlayerPrefs.SetInt (COINS, getTotalCoins() - quantityCoins);
+	}
+
+	public void resetData()
+	{
+		//Init all game data
+		PlayerPrefs.SetInt (SCORE, 0);
+		PlayerPrefs.SetInt (COINS, 0);
 	}
 }

@@ -24,12 +24,14 @@ public class Ground : MonoBehaviour {
 				pacCrazyObject.transform.position = new Vector3 (Random.Range (-5, 5), this.transform.localPosition.y + 2.7f,
 					this.transform.position.z);
 				//pacCrazyObject.transform.parent = this.gameObject.transform;
+
 			} else if(Random.Range (0, 4) == 2) {
 				GameObject gostObject = Instantiate (gost);
 				gostObject.GetComponent<Enemy>().setGround (this.gameObject);
 				gostObject.transform.position = new Vector3 (Random.Range (-5, 5), this.transform.localPosition.y + 2.7f,
 					this.transform.position.z);
 				//gostObject.transform.parent = this.gameObject.transform;
+
 			}
 			else {
 				GameObject babuObject = Instantiate (babu);
@@ -74,6 +76,11 @@ public class Ground : MonoBehaviour {
 
 
 
+	}
+
+	public void clearGround()
+	{
+		
 	}
 
 	public bool IsMovingGround()

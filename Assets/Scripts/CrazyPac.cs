@@ -27,7 +27,7 @@ public class CrazyPac : Enemy {
 		if (gameController.IsGameRunning ()) {
 			animationController.SetBool ("gameStarted", true);
 			Move ();
-
+			animationController.SetBool ("kill", false);
 			//destroy this when gets out of camera
 			if (this.transform.position.y < this.gameController.mainCamera.transform.position.y - 15) {
 				Destroy (this.gameObject);

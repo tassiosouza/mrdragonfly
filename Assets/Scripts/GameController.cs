@@ -11,6 +11,7 @@ public class GameController : MonoBehaviour {
 	public Camera mainCamera;
 
 	private bool gameEnded = false;
+	private bool gameAlmostEnded = false;
 	private bool gameStarted = false;
 
 	private Button startButton;
@@ -28,6 +29,10 @@ public class GameController : MonoBehaviour {
 	private float timeToAddGrounds = 0;
 
 	private List<Ground> groundList = new List<Ground>();
+
+	public GameDataController gameDataController;
+
+	public ContinuePopupController continuePopup;
 
 	// Use this for initialization
 	void Start () {
@@ -48,6 +53,8 @@ public class GameController : MonoBehaviour {
 		{
 			startGame ();
 		}
+
+		playerCoins = gameDataController.getTotalCoins ();
 	}
 
 	// Update is called once per frame
@@ -88,7 +95,15 @@ public class GameController : MonoBehaviour {
 
 	public void increaseCoin()
 	{
-		playerCoins++;
+		gameDataController.incrementCoins (1);
+		playerCoins = gameDataController.getTotalCoins ();
+		interfaceController.updateUICoin (playerCoins);
+	}
+
+	public void decreaseCoin()
+	{
+		gameDataController.decrementCoins (10);
+		playerCoins = gameDataController.getTotalCoins ();
 		interfaceController.updateUICoin (playerCoins);
 	}
 
@@ -97,10 +112,51 @@ public class GameController : MonoBehaviour {
 		playerScore += value;
 	}
 
+	public bool isOnContinue()
+	{
+		return gameAlmostEnded;
+	}
+
+	public void realEndGame()
+	{
+		gameAlmostEnded = false;
+	}
+
+
 	public void endGame()
 	{
 		this.interfaceController.GetComponentInChildren<FinalDialogController> ().setInformations ((int)playerScore);
 		gameEnded = true;
+		gameAlmostEnded = true;
+	}
+
+	public void continueGame()
+	{
+		if (playerCoins >= 10) {
+
+			decreaseCoin ();
+
+			gameAlmostEnded = false;
+			gameEnded = false;
+
+			Player player = (Player)GameObject.FindGameObjectWithTag ("Player").GetComponent<Player> ();
+			Animator anim = (Animator)player.GetComponent<Animator> ();
+			anim.SetBool ("continueGame", true);
+			anim.SetBool ("isDeadJump", false);
+
+			Ground middleGround = groundList [4];
+			player.transform.position = new Vector3 (0, middleGround.transform.position.y, 0);
+
+			player.GetComponent<SphereCollider> ().radius = player.GetComponent<SphereCollider> ().radius * 2f;
+
+			foreach (GameObject enemy in GameObject.FindGameObjectsWithTag ("Enemy")) {
+				if (enemy.transform.position.y < player.transform.position.y + 5 && enemy.transform.position.y > player.transform.position.y - 5) {
+					Destroy (enemy);
+				}
+			}
+
+			continuePopup.reset ();
+		}
 	}
 
 	public void startGame()

@@ -39,7 +39,7 @@ public class Coin : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		transform.Rotate(Vector3.up * Time.deltaTime * 20, Space.World);
+		transform.Rotate(Vector3.up * Time.deltaTime * speed, Space.World);
 
 		if (hitted) {
 			journeyLength = Vector3.Distance(this.transform.position,finalPosition );
@@ -54,6 +54,7 @@ public class Coin : MonoBehaviour {
 
 			if (journeyLength <= 3) {
 				Destroy (this.gameObject);
+				Destroy (this);
 			}
 		}
 

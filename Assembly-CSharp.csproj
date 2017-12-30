@@ -46,6 +46,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\ContinuePopupController.cs" />
      <Compile Include="Assets\Scripts\ApplicationModel.cs" />
      <Compile Include="Assets\Scripts\Coin.cs" />
      <Compile Include="Assets\Scripts\CrazyPac.cs" />

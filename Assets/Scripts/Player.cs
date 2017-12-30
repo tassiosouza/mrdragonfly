@@ -26,7 +26,7 @@ public class Player : MonoBehaviour {
 	float velocity = 0;
 	private bool dead = false;
 	private float timeToJumpDeath = 0;
-
+	private float timetobug = 0;
 	// Use this for initialization
 	void Start () {
 		rBody = this.GetComponent<Rigidbody> ();
@@ -35,7 +35,7 @@ public class Player : MonoBehaviour {
 	}
 	
 	// Update is called once per frame
-	void FixedUpdate () {
+	void Update () {
 		
 		if (gameController.IsGameRunning ()) {
 
@@ -49,10 +49,24 @@ public class Player : MonoBehaviour {
 
 			//Check if the player is jumping to disable collider
 			disableColliderWhenJumping ();
+			dead = false;
+
+			timetobug += Time.deltaTime;
+
+			if (timetobug >= 2)
+			{
+				animationController.SetBool ("continueGame", false);
+			}
+
+			timeToJumpDeath = 0;
+
+
+			this.GetComponent<SphereCollider> ().radius = 0.5f;
 		}
 
 		//control death animation
 		if (dead) {
+			Debug.Log ("dead");
 			timeToJumpDeath += Time.deltaTime;
 			animationController.SetBool ("IsJumping", false);
 			animationController.SetBool ("isDead", true);
@@ -64,7 +78,7 @@ public class Player : MonoBehaviour {
 				this.GetComponent<SphereCollider> ().radius = this.GetComponent<SphereCollider> ().radius / 2f;
 				animationController.SetBool ("isDead", false);
 				animationController.SetBool ("isDeadJump", true);
-				dead = false;
+				timetobug = 0;
 			}
 
 		}
@@ -107,7 +121,7 @@ public class Player : MonoBehaviour {
 		}
 			
 	}
-
+		
 	private bool mouseInputJumping()
 	{
 		return (Input.GetMouseButtonUp (0) && rBody.velocity.y <= 4f);
@@ -185,6 +199,7 @@ public class Player : MonoBehaviour {
 	public void die()
 	{
 		dead = true;
+		this.transform.rotation = Quaternion.AngleAxis (180, Vector3.up);
 	}
 
 }

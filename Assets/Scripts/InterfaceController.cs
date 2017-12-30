@@ -13,9 +13,12 @@ public class InterfaceController : MonoBehaviour {
 
 	public GameObject HomeInterface;
 
+	public GameDataController gameDataController;
+
 	// Use this for initialization
 	void Start () {
-		coin.GetComponent<Text> ().text = "x " + 0;
+		
+		coin.GetComponent<Text> ().text = "x " + gameDataController.getTotalCoins();
 		score.GetComponent<Text> ().text = "x " + 0;
 
 		HomeInterface.SetActive (ApplicationModel.isHome);

@@ -10,8 +10,8 @@ public class FinalDialogController : MonoBehaviour {
 
 	public GameController gameController;
 
-	private float topX = -5625;//control the distance(time) to get to the screen
-	private float bottomX = 5625;
+	private float topX = -3035;//control the distance(time) to get to the screen
+	private float bottomX = 3035;
 
 	private float animVelocity = 2810f;
 
@@ -22,6 +22,8 @@ public class FinalDialogController : MonoBehaviour {
 	public GameObject bScore;
 
 	public GameDataController dataController;
+
+	public GameObject medal;
 
 	// Use this for initialization
 	void Start () {
@@ -35,7 +37,7 @@ public class FinalDialogController : MonoBehaviour {
 
 		updateDialogPosition ();
 
-		if (gameController.isGameEnded()) {
+		if (gameController.isGameEnded() && !gameController.isOnContinue()) {
 			if(topX + Time.deltaTime * animVelocity <= 0)topX += Time.deltaTime * animVelocity;
 			if(bottomX - Time.deltaTime * animVelocity >= 0)bottomX -= Time.deltaTime * animVelocity;
 		}
@@ -51,9 +53,13 @@ public class FinalDialogController : MonoBehaviour {
 	public void setInformations(int score)
 	{
 		//update best score if needed
-		if (score > dataController.getBestScore ())
-		{
+		if (score > dataController.getBestScore ()) {
 			dataController.setNewScore (score);
+			medal.SetActive (true);
+		}
+		else 
+		{
+			medal.SetActive (false);
 		}
 
 		//set ui information
