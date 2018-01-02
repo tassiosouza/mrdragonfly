@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 public class ContinuePopupController : MonoBehaviour {
 
@@ -32,7 +33,7 @@ public class ContinuePopupController : MonoBehaviour {
 				if (this.initialPosX < 10) {
 					timer.transform.localScale = new Vector3 (timer.transform.localScale.x - Time.deltaTime/3, 1, 1);
 
-					if (Input.GetMouseButtonDown (0) && !UnityEngine.EventSystems.EventSystem.current.IsPointerOverGameObject()) {
+					if (Input.GetMouseButtonDown (0) && !IsPointerOverUIObject()) {
 						coming = false;
 						gameController.realEndGame ();	
 					}
@@ -62,5 +63,13 @@ public class ContinuePopupController : MonoBehaviour {
 		this.initialPosX = 100650;
 		this.transform.localPosition = new Vector3 (initialPosX, this.transform.localPosition.y, 0);
 		timer.transform.localScale = new Vector3 (1, 1, 1);
+	}
+
+	private bool IsPointerOverUIObject() {
+		PointerEventData eventDataCurrentPosition = new PointerEventData(EventSystem.current);
+		eventDataCurrentPosition.position = new Vector2(Input.mousePosition.x, Input.mousePosition.y);
+		List<RaycastResult> results = new List<RaycastResult>();
+		EventSystem.current.RaycastAll(eventDataCurrentPosition, results);
+		return results.Count > 0;
 	}
 }
