@@ -7,6 +7,7 @@ public class Ground : MonoBehaviour {
 	public GameObject babu;
 	public GameObject pacCrazy;
 	public GameObject gost;
+	public GameObject ogre;
 
 	public GameObject coin;
 	public GameObject cristal;
@@ -20,26 +21,31 @@ public class Ground : MonoBehaviour {
 		if (this.transform.position.y > 6) {
 			if (Random.Range (0, 4) == 0) {
 				GameObject pacCrazyObject = Instantiate (pacCrazy);
-				pacCrazyObject.GetComponent<Enemy>().setGround (this.gameObject);
+				pacCrazyObject.GetComponent<Enemy> ().setGround (this.gameObject);
 				pacCrazyObject.transform.position = new Vector3 (Random.Range (-5, 5), this.transform.localPosition.y + 2.7f,
 					this.transform.position.z);
-				//pacCrazyObject.transform.parent = this.gameObject.transform;
 
-			} else if(Random.Range (0, 4) == 2) {
+			} else if (Random.Range (0, 4) == 2) {
 				GameObject gostObject = Instantiate (gost);
-				gostObject.GetComponent<Enemy>().setGround (this.gameObject);
+				gostObject.GetComponent<Enemy> ().setGround (this.gameObject);
 				gostObject.transform.position = new Vector3 (Random.Range (-5, 5), this.transform.localPosition.y + 2.7f,
 					this.transform.position.z);
-				//gostObject.transform.parent = this.gameObject.transform;
 
-			}
-			else {
-				GameObject babuObject = Instantiate (babu);
-				babuObject.GetComponent<Enemy>().setGround (this.gameObject);
-				babuObject.transform.position = new Vector3 (Random.Range (-5, 5), this.transform.localPosition.y + 2.7f,
+			} else if (Random.Range (0, 4) == 1) {
+				GameObject ogreObject = Instantiate (ogre);
+				ogreObject.GetComponent<Enemy>().setGround (this.gameObject);
+				ogreObject.transform.position = new Vector3 (Random.Range (-5, 5), this.transform.localPosition.y + 2.6f,
 					this.transform.position.z);
-				//babuObject.transform.parent = this.gameObject.transform;
+				
+			} else 
+			{
+				GameObject babuObject = Instantiate (babu);
+				babuObject.GetComponent<Enemy> ().setGround (this.gameObject);
+				babuObject.transform.position = new Vector3 (Random.Range (-5, 5), this.transform.localPosition.y + 2.6f,
+					this.transform.position.z);
+				
 			}
+
 
 			//sort for moving ground
 //			if(Random.Range (0, 4) == 0){

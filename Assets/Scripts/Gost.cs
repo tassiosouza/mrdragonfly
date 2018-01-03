@@ -5,7 +5,7 @@ using UnityEngine;
 public class Gost : Enemy {
 
 	private bool isGoingRight;
-	private float velocity = 4f;
+	private float velocity = 3f;
 	private float velocityUp = 0;
 
 	private GameController gameController;
@@ -88,7 +88,8 @@ public class Gost : Enemy {
 		if (isGoingRight) {
 
 			if (this.transform.position.x < 5) {
-				this.transform.position = new Vector3 (this.transform.position.x + velocityUpdate, this.transform.position.y + velocityUp,
+				this.transform.position = new Vector3 (this.transform.position.x + velocityUpdate * LevelController.enemyVelocityFactor, 
+					this.transform.position.y + velocityUp * LevelController.enemyVelocityFactor,
 					this.transform.position.z);
 				this.transform.rotation = Quaternion.AngleAxis(135,Vector3.up);
 			} else {
@@ -96,7 +97,8 @@ public class Gost : Enemy {
 			}
 		} else {
 			if (this.transform.position.x > -5) {
-				this.transform.position = new Vector3 (this.transform.position.x - velocityUpdate, this.transform.position.y + velocityUp,
+				this.transform.position = new Vector3 (this.transform.position.x - velocityUpdate * LevelController.enemyVelocityFactor,
+					this.transform.position.y + velocityUp * LevelController.enemyVelocityFactor,
 					this.transform.position.z);
 				this.transform.rotation = Quaternion.AngleAxis(225,Vector3.up);
 			} else {

@@ -47,6 +47,7 @@
   </ItemGroup>
   <ItemGroup>
      <Compile Include="Assets\ContinuePopupController.cs" />
+     <Compile Include="Assets\Ogre.cs" />
      <Compile Include="Assets\Scripts\ApplicationModel.cs" />
      <Compile Include="Assets\Scripts\Coin.cs" />
      <Compile Include="Assets\Scripts\CrazyPac.cs" />
@@ -66,6 +67,7 @@
      <None Include="Assets\Prefabs\Micro-Brian\_source\models\micro_zombie_animation_list.txt" />
      <None Include="Assets\Prefabs\Micro-Hubert-Faceted\_source\Models\micro_ghost_animations_list.txt" />
      <None Include="Assets\Prefabs\Collectables super pack\readme.txt" />
+     <None Include="Assets\Micro-Gronk-Faceted\_demo\orc_animation_list.txt" />
      <None Include="Assets\Prefabs\Micro-Dragon-Fino\_source\Models\micro_dragon_animations.txt" />
      <None Include="Assets\Prefabs\Micro-Gobrot-Faceted\_source\Models\micro_ghoul_animation_list.txt" />
  <Reference Include="UnityEngine.UI">

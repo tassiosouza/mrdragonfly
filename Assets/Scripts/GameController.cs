@@ -26,8 +26,6 @@ public class GameController : MonoBehaviour {
 	private float playerScore = 0;
 	private int playerCoins = 0;
 
-	private float timeToAddGrounds = 0;
-
 	private List<Ground> groundList = new List<Ground>();
 
 	public GameDataController gameDataController;
@@ -45,8 +43,6 @@ public class GameController : MonoBehaviour {
 		friendsButton = GameObject.Find("Friends Button").GetComponent<Button>();
 		optionsButton = GameObject.Find("Options Button").GetComponent<Button>();
 		initialScreen = GameObject.Find("Initial Screen").GetComponent<RectTransform>();
-
-		gameVelocity = LevelController.initialGameVelocity;
 
 		//comming from restart button
 		if (!ApplicationModel.isHome)
@@ -190,15 +186,12 @@ public class GameController : MonoBehaviour {
 	private void runGameScene()
 	{
 		mainCamera.transform.position = new Vector3 (mainCamera.transform.position.x,
-			mainCamera.transform.position.y + Time.deltaTime * 2 ,mainCamera.transform.position.z);
-		
-		//gameVelocity += LevelController.deltaGameVelocity;
+			mainCamera.transform.position.y + Time.deltaTime * gameVelocity * LevelController.gameVelocityFactor,mainCamera.transform.position.z);
 
 		playerScore += Time.deltaTime;
 		interfaceController.updateUIScore (playerScore);
 
 		//ground quantity controll : add
-		timeToAddGrounds += Time.deltaTime;
 		if (groundList[groundList.Count -1].transform.position.y < mainCamera.transform.position.y + 15) 
 		{
 			addNewGrounds (1);

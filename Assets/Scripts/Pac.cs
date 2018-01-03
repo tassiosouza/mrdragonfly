@@ -5,7 +5,7 @@ using UnityEngine;
 public class Pac : Enemy {
 
 	private bool isGoingRight;
-	private float velocity = 3f;
+	private float velocity = 2f;
 
 	private GameController gameController;
 	Animator animationController;
@@ -46,7 +46,7 @@ public class Pac : Enemy {
 		if (isGoingRight) {
 
 			if (this.transform.position.x < 5) {
-				this.transform.position = new Vector3 (this.transform.position.x + velocityUpdate, this.transform.position.y,
+				this.transform.position = new Vector3 (this.transform.position.x + velocityUpdate * LevelController.enemyVelocityFactor, this.transform.position.y,
 					this.transform.position.z);
 				this.transform.rotation = Quaternion.AngleAxis(135,Vector3.up);
 			} else {
@@ -54,7 +54,7 @@ public class Pac : Enemy {
 			}
 		} else {
 			if (this.transform.position.x > -5) {
-				this.transform.position = new Vector3 (this.transform.position.x - velocityUpdate, this.transform.position.y,
+				this.transform.position = new Vector3 (this.transform.position.x - velocityUpdate * LevelController.enemyVelocityFactor, this.transform.position.y,
 					this.transform.position.z);
 				this.transform.rotation = Quaternion.AngleAxis(225,Vector3.up);
 			} else {
