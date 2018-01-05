@@ -5,7 +5,7 @@ using UnityEngine;
 public class CrazyPac : Enemy {
 
 	private bool isGoingRight;
-	private float velocity = 4f;
+	private float velocity = 2f;
 
 	private GameController gameController;
 

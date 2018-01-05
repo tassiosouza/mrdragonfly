@@ -27,6 +27,7 @@ public class Player : MonoBehaviour {
 	private bool dead = false;
 	private float timeToJumpDeath = 0;
 	private float timetobug = 0;
+	private float timetojump = 1;
 	// Use this for initialization
 	void Start () {
 		rBody = this.GetComponent<Rigidbody> ();
@@ -41,8 +42,15 @@ public class Player : MonoBehaviour {
 
 			//Player Jump
 			if (mouseInputJumping ()) {
-				playerJump ();
+				
+
+				if (timetojump >= 0.6f) {
+					playerJump ();
+					timetojump = 0;
+				}
+
 			}
+			timetojump += Time.deltaTime;
 
 			//Left and Right Player movement
 			performPlayerSideMovement ();
@@ -60,6 +68,12 @@ public class Player : MonoBehaviour {
 
 			timeToJumpDeath = 0;
 
+
+//			///if (this.transform.position.y > this.gameController.mainCamera.transform.position.y -7) {
+//				Vector3 camPos = this.gameController.mainCamera.transform.position;
+//			this.gameController.mainCamera.transform.position = new Vector3 (camPos.x, this.transform.position.y, camPos.z);
+//
+//			//}
 
 			this.GetComponent<SphereCollider> ().radius = 0.5f;
 		}
@@ -124,7 +138,7 @@ public class Player : MonoBehaviour {
 		
 	private bool mouseInputJumping()
 	{
-		return (Input.GetMouseButtonUp (0) && rBody.velocity.y <= 4f);
+		return (!Input.GetMouseButton (0));
 	}
 
 	private void playerJump()
@@ -132,7 +146,8 @@ public class Player : MonoBehaviour {
 		animationController.SetBool ("IsJumping",true);
 		float velocityadd = rBody.velocity.y;
 		rBody.velocity = Vector3.zero;
-		rBody.AddForce(new Vector3(0, jumpForce + velocityadd/JUMP_CALIBRATOR , 0), ForceMode.Impulse);
+		//rBody.AddForce(new Vector3(0, jumpForce + velocityadd/JUMP_CALIBRATOR , 0), ForceMode.Impulse);
+		rBody.AddForce(new Vector3(0, 7.5f , 0), ForceMode.Impulse);
 	}
 
 	private void disableColliderWhenJumping()

@@ -5,7 +5,7 @@ using UnityEngine;
 public class Pac : Enemy {
 
 	private bool isGoingRight;
-	private float velocity = 2f;
+	private float velocity = 1f;
 
 	private GameController gameController;
 	Animator animationController;

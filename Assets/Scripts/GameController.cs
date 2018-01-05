@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.Advertisements;
 
 public class GameController : MonoBehaviour {
 
@@ -51,6 +52,31 @@ public class GameController : MonoBehaviour {
 		}
 
 		playerCoins = gameDataController.getTotalCoins ();
+	}
+
+	void Awake() {
+		if (Advertisement.isSupported) {
+			Advertisement.Initialize ("1659064",true);
+		} else {
+			Debug.Log("Platform not supported");
+		}
+	} 
+
+	public IEnumerator ShowAdWhenIsReady()
+	{
+		while(!Advertisement.IsReady())
+			yield return null;
+
+		Advertisement.Show(null, new ShowOptions {
+			resultCallback = result => {
+				Debug.Log(result.ToString());
+			}
+		});
+	} 
+
+	public void showAdd()
+	{
+		StartCoroutine (ShowAdWhenIsReady ());
 	}
 
 	// Update is called once per frame

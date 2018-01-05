@@ -5,7 +5,7 @@ using UnityEngine;
 public class Ogre : Enemy {
 
 	private bool isGoingRight;
-	private float velocity = 6f;
+	private float velocity = 4f;
 
 	private GameController gameController;
 	Animator animationController;

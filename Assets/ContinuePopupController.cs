@@ -19,7 +19,7 @@ public class ContinuePopupController : MonoBehaviour {
 		reset ();
 		
 	}
-	
+	bool showedAdd = false;
 	// Update is called once per frame
 	void Update () {
 
@@ -43,6 +43,22 @@ public class ContinuePopupController : MonoBehaviour {
 				}
 			} else {
 				this.initialPosX -= Time.deltaTime * Mathf.Abs (initialPosX - 50) * velocity * 2;
+
+				if (this.initialPosX < -300) {
+					if(Random.Range(0,2) != 1)
+					{
+						showedAdd = true;
+					}
+					else
+					{
+						if (!showedAdd) {
+							showedAdd = true;
+							gameController.showAdd ();
+						}
+					} 
+
+				}
+
 			}
 
 			if (initialPosX < 0.5f) {

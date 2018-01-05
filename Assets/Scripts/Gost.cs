@@ -5,7 +5,7 @@ using UnityEngine;
 public class Gost : Enemy {
 
 	private bool isGoingRight;
-	private float velocity = 3f;
+	private float velocity = 2f;
 	private float velocityUp = 0;
 
 	private GameController gameController;
