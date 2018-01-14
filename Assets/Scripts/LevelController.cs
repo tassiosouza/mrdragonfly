@@ -6,6 +6,7 @@ public class LevelController : MonoBehaviour {
 
 	public static float gameVelocityFactor = 1;
 	public static float enemyVelocityFactor = 1;
+	public static float playerVelocityFactor = 0.75f;
 
 	private float gameTime = 0;
 
@@ -25,6 +26,7 @@ public class LevelController : MonoBehaviour {
 
 		if (gameTime > 0 && gameTime <= 20)
 		{
+			playerVelocityFactor = 0.75f;
 			gameVelocityFactor = 1.0f;
 			enemyVelocityFactor = 1.2f;
 		}
@@ -39,6 +41,7 @@ public class LevelController : MonoBehaviour {
 		if (gameTime > 60 && gameTime < 80)
 		{
 			gameVelocityFactor = 1.2f;
+			playerVelocityFactor = 0.68f;
 			enemyVelocityFactor = 1.8f;
 		}
 		if (gameTime > 80 && gameTime <= 100)
@@ -56,6 +59,7 @@ public class LevelController : MonoBehaviour {
 		if (gameTime > 140 && gameTime < 160)
 		{
 			gameVelocityFactor = 1.4f;
+			playerVelocityFactor = 0.55f;
 			enemyVelocityFactor = 2.6f;
 		}
 		

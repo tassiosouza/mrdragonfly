@@ -27,7 +27,7 @@ public class Player : MonoBehaviour {
 	private bool dead = false;
 	private float timeToJumpDeath = 0;
 	private float timetobug = 0;
-	private float timetojump = 1;
+	private float timetojump = 100;
 	// Use this for initialization
 	void Start () {
 		rBody = this.GetComponent<Rigidbody> ();
@@ -44,7 +44,7 @@ public class Player : MonoBehaviour {
 			if (mouseInputJumping ()) {
 				
 
-				if (timetojump >= 0.6f) {
+				if (timetojump >= LevelController.playerVelocityFactor) {
 					playerJump ();
 					timetojump = 0;
 				}
@@ -147,7 +147,7 @@ public class Player : MonoBehaviour {
 		float velocityadd = rBody.velocity.y;
 		rBody.velocity = Vector3.zero;
 		//rBody.AddForce(new Vector3(0, jumpForce + velocityadd/JUMP_CALIBRATOR , 0), ForceMode.Impulse);
-		rBody.AddForce(new Vector3(0, 7.5f , 0), ForceMode.Impulse);
+		rBody.AddForce(new Vector3(0, 7.4f , 0), ForceMode.Impulse);
 	}
 
 	private void disableColliderWhenJumping()

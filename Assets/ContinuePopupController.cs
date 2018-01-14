@@ -45,7 +45,7 @@ public class ContinuePopupController : MonoBehaviour {
 				this.initialPosX -= Time.deltaTime * Mathf.Abs (initialPosX - 50) * velocity * 2;
 
 				if (this.initialPosX < -300) {
-					if(Random.Range(0,2) != 1)
+					if(Random.Range (0,3) == 1)
 					{
 						showedAdd = true;
 					}

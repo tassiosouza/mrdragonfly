@@ -33,6 +33,12 @@ public class GameController : MonoBehaviour {
 
 	public ContinuePopupController continuePopup;
 
+	#if UNITY_IOS
+	private string gameId = "1659064";
+	#elif UNITY_ANDROID
+	private string gameId = "1659063";
+	#endif
+
 	// Use this for initialization
 	void Start () {
 
@@ -56,7 +62,7 @@ public class GameController : MonoBehaviour {
 
 	void Awake() {
 		if (Advertisement.isSupported) {
-			Advertisement.Initialize ("1659064",true);
+			Advertisement.Initialize (gameId,true);
 		} else {
 			Debug.Log("Platform not supported");
 		}
@@ -64,7 +70,7 @@ public class GameController : MonoBehaviour {
 
 	public IEnumerator ShowAdWhenIsReady()
 	{
-		while(!Advertisement.IsReady())
+		while(!Advertisement.IsReady(""))
 			yield return null;
 
 		Advertisement.Show(null, new ShowOptions {
