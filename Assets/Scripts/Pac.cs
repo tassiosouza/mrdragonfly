@@ -7,30 +7,40 @@ public class Pac : Enemy {
 	private bool isGoingRight;
 	private float velocity = 1f;
 
-	private GameController gameController;
-	Animator animationController;
 	// Use this for initialization
 	void Start () {
 
-		enemyID = ID_PAC;
+		enemyID = ID_BABU;
 
 		isGoingRight = (Random.Range (0, 1) == 1);
 		gameController = FindObjectOfType<GameController> ();
 
 		animationController = GetComponent<Animator> ();
+		killed = false;
+
+		color = GetComponentInChildren<Renderer>().material.color;
 	}
 	
 	// Update is called once per frame
 	void Update () {
 		if (gameController.IsGameRunning ()) {
 			animationController.SetBool ("gameStarted", true);
-			Move ();
+
 
 			//destroy this when gets out of camera
 			if (this.transform.position.y < this.gameController.mainCamera.transform.position.y - 15) {
 				Destroy (this.gameObject);
 			}
 			animationController.SetBool ("kill", false);
+
+			if (killed) {
+				this.transform.rotation = Quaternion.AngleAxis(180,Vector3.up);
+
+				desappear ();
+			} 
+			else {
+				Move ();
+			}
 		}
 
 		if (gameController.isGameEnded ()) {
@@ -64,12 +74,6 @@ public class Pac : Enemy {
 	}
 
 	void OnTriggerEnter(Collider other) {
-		if (other.gameObject.tag == "Player") {
-			//GetComponent<Renderer>().material.color = new Color(255, 0, 0);
-			Player player = other.GetComponent<Player>();
-			animationController.SetBool ("kill", true);
-			player.die ();
-			this.gameController.endGame ();
-		}
+		die (other);
 	}
 }

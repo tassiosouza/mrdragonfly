@@ -7,26 +7,31 @@ public class CrazyPac : Enemy {
 	private bool isGoingRight;
 	private float velocity = 2f;
 
-	private GameController gameController;
-
 	private float counter = 0;
-	Animator animationController;
+
 	// Use this for initialization
 	void Start () {
 
-		enemyID = ID_PAC;
+		enemyID = ID_CRAZYPAC;
 
 		isGoingRight = (Random.Range (0, 1) == 1);
 		gameController = FindObjectOfType<GameController> ();
-
 		animationController = GetComponent<Animator> ();
+		killed = false;
+		color = GetComponentInChildren<Renderer>().material.color;
 	}
 
 	// Update is called once per frame
 	void FixedUpdate () {
 		if (gameController.IsGameRunning ()) {
 			animationController.SetBool ("gameStarted", true);
-			Move ();
+			if (killed) {
+				this.transform.rotation = Quaternion.AngleAxis(180,Vector3.up);
+				desappear ();
+			} 
+			else {
+				Move ();
+			}
 			animationController.SetBool ("kill", false);
 			//destroy this when gets out of camera
 			if (this.transform.position.y < this.gameController.mainCamera.transform.position.y - 15) {
@@ -61,11 +66,6 @@ public class CrazyPac : Enemy {
 	}
 
 	void OnTriggerEnter(Collider other) {
-		if (other.gameObject.tag == "Player") {
-			Player player = other.GetComponent<Player>();
-			player.die ();
-			animationController.SetBool ("kill", true);
-			this.gameController.endGame ();
-		}
+		die (other);
 	}
 }

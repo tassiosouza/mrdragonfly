@@ -12,6 +12,7 @@ public class Ground : MonoBehaviour {
 	public GameObject coin;
 	public GameObject cristal;
 	public GameObject cristal1;
+	public GameObject star;
 
 	private bool isMovingGround = false;
 
@@ -19,31 +20,35 @@ public class Ground : MonoBehaviour {
 	void Start () {
 
 		if (this.transform.position.y > 6) {
-			if (Random.Range (0, 4) == 0) {
+			
+			if (LevelController.getSortedEnemy () == Enemy.ID_CRAZYPAC) {
 				GameObject pacCrazyObject = Instantiate (pacCrazy);
 				pacCrazyObject.GetComponent<Enemy> ().setGround (this.gameObject);
 				pacCrazyObject.transform.position = new Vector3 (Random.Range (-5, 5), this.transform.localPosition.y + 2.7f,
 					this.transform.position.z);
 
-			} else if (Random.Range (0, 4) == 2) {
+			} else if (LevelController.getSortedEnemy () == Enemy.ID_GOST) {
 				GameObject gostObject = Instantiate (gost);
 				gostObject.GetComponent<Enemy> ().setGround (this.gameObject);
 				gostObject.transform.position = new Vector3 (Random.Range (-5, 5), this.transform.localPosition.y + 2.7f,
 					this.transform.position.z);
 
-			} else if (Random.Range (0, 4) == 1) {
+			} else if (LevelController.getSortedEnemy () == Enemy.ID_OGRE) {
 				GameObject ogreObject = Instantiate (ogre);
-				ogreObject.GetComponent<Enemy>().setGround (this.gameObject);
+				ogreObject.GetComponent<Enemy> ().setGround (this.gameObject);
 				ogreObject.transform.position = new Vector3 (Random.Range (-5, 5), this.transform.localPosition.y + 2.6f,
 					this.transform.position.z);
 				
-			} else 
-			{
+			} else if (LevelController.getSortedEnemy () == Enemy.ID_BABU) {
 				GameObject babuObject = Instantiate (babu);
 				babuObject.GetComponent<Enemy> ().setGround (this.gameObject);
 				babuObject.transform.position = new Vector3 (Random.Range (-5, 5), this.transform.localPosition.y + 2.6f,
-					this.transform.position.z);
-				
+					this.transform.position.z);	
+			} else {
+				GameObject babuObject = Instantiate (babu);
+				babuObject.GetComponent<Enemy> ().setGround (this.gameObject);
+				babuObject.transform.position = new Vector3 (Random.Range (-5, 5), this.transform.localPosition.y + 2.6f,
+					this.transform.position.z);	
 			}
 
 
@@ -73,6 +78,13 @@ public class Ground : MonoBehaviour {
 				{
 					GameObject cristal1Object = Instantiate (cristal1);
 					cristal1Object.transform.position = new Vector3 (i, this.transform.position.y + 1.2f,
+						this.transform.position.z);
+					//cristal1Object.transform.parent = this.gameObject.transform;
+				}
+				else if(Random.Range (0, 15) == 4)
+				{
+					GameObject starObject = Instantiate (star);
+					starObject.transform.position = new Vector3 (i, this.transform.position.y + 0.9f,
 						this.transform.position.z);
 					//cristal1Object.transform.parent = this.gameObject.transform;
 				}

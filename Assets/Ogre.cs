@@ -5,10 +5,7 @@ using UnityEngine;
 public class Ogre : Enemy {
 
 	private bool isGoingRight;
-	private float velocity = 4f;
-
-	private GameController gameController;
-	Animator animationController;
+	private float velocity = 1f;
 
 	private Player player;
 	private float timeAnim = 0;
@@ -16,35 +13,48 @@ public class Ogre : Enemy {
 	// Use this for initialization
 	void Start () {
 
-		enemyID = ID_PAC;
+		enemyID = ID_OGRE;
 
 		isGoingRight = (Random.Range (0, 1) == 1);
 		gameController = FindObjectOfType<GameController> ();
-
-		animationController = GetComponent<Animator> ();
-
 		player = FindObjectOfType<Player> ();
+		animationController = GetComponent<Animator> ();
+		killed = false;
+		color = GetComponentInChildren<Renderer>().material.color;
 	}
 
 	// Update is called once per frame
 	void FixedUpdate () {
 		if (gameController.IsGameRunning ()) {
 			animationController.SetBool ("gameStarted", true);
-			//Move ();
-
 
 			if (player.gameObject.transform.position.y > this.transform.position.y - 1 &&
-				player.gameObject.transform.position.y < this.transform.position.y + 1) {
+			    player.gameObject.transform.position.y < this.transform.position.y + 1) {
 
 				animationController.SetBool ("isOnLine", true);
+				this.transform.rotation = Quaternion.AngleAxis(180,Vector3.up);
 
+			} else {
+				if (killed) {
+					this.transform.rotation = Quaternion.AngleAxis(180,Vector3.up);
+					desappear ();
+				} 
+				else {
+					Move ();
+				}
 			}
 				
 			if (animationController.GetBool ("isOnLine")) {
 				timeAnim += Time.deltaTime;
 
 				if (timeAnim > 1f) {
-					Move ();
+					if (killed) {
+						this.transform.rotation = Quaternion.AngleAxis(180,Vector3.up);
+					} 
+					else {
+						Move ();
+					}
+					velocity = 1.5f;
 				} else {
 					isGoingRight = (player.transform.position.x >= this.transform.position.x);
 				}
@@ -91,12 +101,6 @@ public class Ogre : Enemy {
 	}
 
 	void OnTriggerEnter(Collider other) {
-		if (other.gameObject.tag == "Player") {
-			//GetComponent<Renderer>().material.color = new Color(255, 0, 0);
-			Player player = other.GetComponent<Player>();
-			animationController.SetBool ("kill", true);
-			player.die ();
-			this.gameController.endGame ();
-		}
+		die (other);
 	}
 }

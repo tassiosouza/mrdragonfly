@@ -28,7 +28,7 @@ public class ParallaxLevel : MonoBehaviour {
 				this.transform.position.z);
 			acceleration += Time.deltaTime/4;
 
-			if ((this.transform.localPosition.y) < -26.38) {
+			if ((this.transform.localPosition.y) < -22.3) {
 				this.transform.localPosition = new Vector3 (0,0,this.transform.localPosition.z);
 				acceleration = 0;
 			}

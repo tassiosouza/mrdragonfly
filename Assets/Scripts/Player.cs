@@ -28,11 +28,27 @@ public class Player : MonoBehaviour {
 	private float timeToJumpDeath = 0;
 	private float timetobug = 0;
 	private float timetojump = 100;
+	private float timetoespecial = 0;
+	private float timetoplayespecial = 0;
+
+	private bool isespecial = false;
+	ParticleSystem especial;
 	// Use this for initialization
 	void Start () {
 		rBody = this.GetComponent<Rigidbody> ();
 		animationController = GetComponent<Animator> ();
 		timeToJumpDeath = 0;
+		isespecial = false;
+		timetoespecial = 0;
+		timetoplayespecial = 0;
+
+		especial = GetComponentInChildren<ParticleSystem>();
+
+		var main = especial.main;
+		main.loop = true;
+
+		//set especial false
+		this.transform.GetChild (2).gameObject.SetActive (false);
 	}
 	
 	// Update is called once per frame
@@ -41,15 +57,14 @@ public class Player : MonoBehaviour {
 		if (gameController.IsGameRunning ()) {
 
 			//Player Jump
-			if (mouseInputJumping ()) {
-				
+			//if (mouseInputJumping ()) {
 
 				if (timetojump >= LevelController.playerVelocityFactor) {
-					playerJump ();
+					playerJump();
 					timetojump = 0;
 				}
 
-			}
+			//}
 			timetojump += Time.deltaTime;
 
 			//Left and Right Player movement
@@ -72,8 +87,29 @@ public class Player : MonoBehaviour {
 //			///if (this.transform.position.y > this.gameController.mainCamera.transform.position.y -7) {
 //				Vector3 camPos = this.gameController.mainCamera.transform.position;
 //			this.gameController.mainCamera.transform.position = new Vector3 (camPos.x, this.transform.position.y, camPos.z);
-//
+
 //			//}
+
+			if (isespecial) {
+
+				timetoplayespecial += Time.deltaTime;
+				if (timetoplayespecial > 1f) {
+					especial.Play ();
+					timetoplayespecial = 0;
+				}
+
+				timetoespecial += Time.deltaTime;
+
+				if (timetoespecial > 10) {
+					isespecial = false;
+					//set especial false
+					this.transform.GetChild (2).gameObject.SetActive (false);
+				}
+
+			} else {
+				timetoespecial = 0;
+				timetoplayespecial = 0;
+			}
 
 			this.GetComponent<SphereCollider> ().radius = 0.5f;
 		}
@@ -141,13 +177,27 @@ public class Player : MonoBehaviour {
 		return (!Input.GetMouseButton (0));
 	}
 
+	public bool isEspecial()
+	{
+		return true;
+	}
+
+	public void setEspecial()
+	{
+		isespecial = true;
+		especial.Play ();
+		//set especial true
+		this.transform.GetChild (2).gameObject.SetActive (true);
+		timetoespecial = 0;
+	}
+
 	private void playerJump()
 	{
 		animationController.SetBool ("IsJumping",true);
 		float velocityadd = rBody.velocity.y;
 		rBody.velocity = Vector3.zero;
 		//rBody.AddForce(new Vector3(0, jumpForce + velocityadd/JUMP_CALIBRATOR , 0), ForceMode.Impulse);
-		rBody.AddForce(new Vector3(0, 7.4f , 0), ForceMode.Impulse);
+		rBody.AddForce(new Vector3(0, 7.4f , 0), ForceMode.VelocityChange);
 	}
 
 	private void disableColliderWhenJumping()

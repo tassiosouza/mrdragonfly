@@ -88,6 +88,7 @@
      <Compile Include="Assets\Scripts\ParallaxLevel.cs" />
      <Compile Include="Assets\Scripts\Player.cs" />
      <Compile Include="Assets\Scripts\TextAnim.cs" />
+     <Compile Include="Assets\Star.cs" />
      <None Include="Assets\Prefabs\Micro-Brian\_source\models\micro_zombie_animation_list.txt" />
      <None Include="Assets\Prefabs\Micro-Hubert-Faceted\_source\Models\micro_ghost_animations_list.txt" />
      <None Include="Assets\Facebook\Plugins\Android\AndroidManifest.xml" />

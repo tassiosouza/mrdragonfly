@@ -58,6 +58,8 @@ public class GameController : MonoBehaviour {
 		}
 
 		playerCoins = gameDataController.getTotalCoins ();
+
+		LevelController.reset ();
 	}
 
 	void Awake() {
@@ -195,6 +197,7 @@ public class GameController : MonoBehaviour {
 
 	public void restartGame()
 	{
+		LevelController.reset ();
 		ApplicationModel.isHome = false;
 		Application.LoadLevel ("Main");	
 	}

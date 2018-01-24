@@ -8,15 +8,14 @@ public class Gost : Enemy {
 	private float velocity = 2f;
 	private float velocityUp = 0;
 
-	private GameController gameController;
 	private Player player;
-	private bool startFade = false;
-	private int alpha = 225;
-	private Color color;
 
 	private float velocityUpdate;
-	Animator animationController;
 	float timetoanim = 0;
+
+	protected bool startFade1 = false;
+	protected int alpha1 = 100;
+
 	// Use this for initialization
 	void Start () {
 
@@ -25,10 +24,9 @@ public class Gost : Enemy {
 		isGoingRight = (Random.Range (0, 1) == 1);
 		gameController = FindObjectOfType<GameController> ();
 		player = FindObjectOfType<Player> ();
-		color = GetComponentInChildren<Renderer>().material.color;
-
 		animationController = GetComponent<Animator> ();
-
+		killed = false;
+		color = GetComponentInChildren<Renderer>().material.color;
 	}
 
 	// Update is called once per frame
@@ -37,7 +35,13 @@ public class Gost : Enemy {
 		velocityUpdate = Time.deltaTime * velocity;
 
 		if (gameController.IsGameRunning ()) {
-			Move ();
+			if (killed) {
+				this.transform.rotation = Quaternion.AngleAxis(180,Vector3.up);
+				desappear ();
+			} 
+			else {
+				Move ();
+			}
 			animationController.SetBool ("kill", false);
 			//destroy this when gets out of camera
 			if (this.transform.position.y < this.gameController.mainCamera.transform.position.y - 15) {
@@ -46,29 +50,32 @@ public class Gost : Enemy {
 
 			animationController.SetBool ("gameStarted", true);
 
-			if (player.gameObject.transform.position.y > this.transform.position.y - 1 &&
-				player.gameObject.transform.position.y < this.transform.position.y + 1) {
+//			if (player.gameObject.transform.position.y > this.transform.position.y - 1 &&
+//				player.gameObject.transform.position.y < this.transform.position.y + 1) {
+//
+//				velocityUp = velocityUpdate / 2;
+//				startFade1 = true;
+//			}
 
-				velocityUp = velocityUpdate / 2;
-				startFade = true;
-			}
-
-			if (startFade) {
-				GetComponentInChildren<Renderer> ().material.color = new Color(color.r
-																			 ,color.g
-																			 ,color.b
-																			 ,alpha);
+			if (!startFade) {
+				if (startFade1) {
+					GetComponentInChildren<Renderer> ().material.color = new Color(color.r
+						,color.g
+						,color.b
+						,alpha);
 
 
-				alpha -= 1;
-				if (alpha <= 50) {
-					GetComponentInChildren<Renderer> ().enabled = !GetComponentInChildren<Renderer> ().enabled;
+					alpha1 -= 1;
+					if (alpha1 <= 50) {
+						GetComponentInChildren<Renderer> ().enabled = !GetComponentInChildren<Renderer> ().enabled;
 
-					if (alpha < 0) {
-						Destroy (this.gameObject);
+						if (alpha1 < 0) {
+							Destroy (this.gameObject);
+						}
 					}
 				}
 			}
+
 
 		}
 
@@ -108,11 +115,6 @@ public class Gost : Enemy {
 	}
 
 	void OnTriggerEnter(Collider other) {
-		if (other.gameObject.tag == "Player") {
-			animationController.SetBool ("kill", true);
-			Player player = other.GetComponent<Player>();
-			player.die ();
-			this.gameController.endGame ();
-		}
+		die (other);
 	}
 }
